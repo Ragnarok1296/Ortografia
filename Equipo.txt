@@ -5,3 +5,4 @@ Nombre del equipo:
 Integrantes:
 
 		José Elías López Durán
+		Misael López Sanchez
