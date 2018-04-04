@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Ortografia</string>
+
+    <!-- Login -->
+    <string name="txtLogin">LOGIN</string>
+    <string name="hintEmail">Introduzca su Email</string>
+    <string name="hintPassword">Introduzca su contraseña</string>
+    <string name="btnLogin">ENTRAR</string>
+
+    <!-- Registro -->
+    <string name="txtCreateAccount">REGISTRO</string>
+    <string name="hintName">Introduce tu(s) nombres</string>
+    <string name="hintLastName">Introduce tus apellidos</string>
+    <string name="btnCreateAccount">CREAR CUENTA</string>
+
 </resources>

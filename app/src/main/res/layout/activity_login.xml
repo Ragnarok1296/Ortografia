@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:background="@drawable/login">
+
+        <!-- Icono -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/weight_default"
+            android:layout_weight="25">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/logo"
+                android:layout_height="@dimen/logo"
+                android:layout_centerInParent="true"
+                android:src="@drawable/logo"/>
+
+        </RelativeLayout>
+
+        <!-- Datos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/weight_default"
+            android:paddingLeft="@dimen/padding_left_default"
+            android:paddingRight="@dimen/padding_right_default"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtLogin"
+                android:textColor="@color/tertiary_text"
+                android:textSize="@dimen/upper_letters"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_textinputlayout"
+                android:hint="@string/hintEmail"
+                android:textColorHint="@color/tertiary_text"
+                app:hintTextAppearance="@style/FloatingLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:maxLength="50"
+                    android:theme="@style/EditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_textinputlayout"
+                android:hint="@string/hintPassword"
+                android:textColorHint="@color/tertiary_text"
+                app:hintTextAppearance="@style/FloatingLabel"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/tertiary_text">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:maxLength="16"
+                    android:theme="@style/EditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_button"
+                android:text="@string/btnLogin"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/txt_Bbutton_default"
+                android:theme="@style/RaisedButton"/>
+
+        </LinearLayout>
+
+        <!-- FloatingButton -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/weight_default"
+            android:layout_weight="25"
+            android:orientation="vertical">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabCreate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="70dp"
+                android:layout_marginBottom="70dp"
+                android:src="@drawable/plus_circle"
+                app:backgroundTint="@color/colorPrimary"
+                app:fabSize="normal"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
