@@ -13,4 +13,12 @@
     <string name="hintLastName">Introduce tus apellidos</string>
     <string name="btnCreateAccount">CREAR CUENTA</string>
 
+    <!-- Actualizar -->
+    <string name="txtUpdateAccount">ACTUALIZAR</string>
+    <string name="txtEmail">Email</string>
+    <string name="btnUpdateAccount">ACTUALIZAR</string>
+
+
+
+
 </resources>

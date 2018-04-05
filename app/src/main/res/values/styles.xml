@@ -31,7 +31,7 @@
         <item name="colorControlActivated">@color/tertiary_text</item>
     </style>
 
-    <!-- CreateAccount -->
+    <!-- CreateAccount and UdateAccount -->
     <style name="RaisedButtonCreateAccount" parent="Theme.AppCompat.Light">
         <item name="colorButtonNormal">@color/colorPrimaryDark</item>
         <item name="colorControlHighlight">@color/colorPrimary</item>

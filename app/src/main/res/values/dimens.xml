@@ -1,19 +1,26 @@
 <resources>
 
-    <!-- Login and Create Account -->
-    <dimen name="upper_letters">32dp</dimen>
+    <!-- Login, Create Account and Update Account -->
+    <dimen name="upper_letters">32sp</dimen>
+    <dimen name="text_appearance_size">14sp</dimen>
+    <dimen name="size_hint_default">20sp</dimen>
+    <dimen name="txt_Bbutton_default">18sp</dimen>
+
     <dimen name="padding_left_default">30dp</dimen>
     <dimen name="padding_right_default">30dp</dimen>
-    <dimen name="text_appearance_size">14dp</dimen>
-    <dimen name="size_hint_default">20dp</dimen>
-    <dimen name="txt_Bbutton_default">18dp</dimen>
-    <dimen name="weight_default">0dp</dimen>
+
     <dimen name="margin_top_textinputlayout">5dp</dimen>
     <dimen name="margin_bottom_textinputlayout">5dp</dimen>
     <dimen name="margin_top_button">30dp</dimen>
-    <dimen name="logo">110dp</dimen>
-    <dimen name="cancel">40dp</dimen>
     <dimen name="margin_cancel_button">15dp</dimen>
     <dimen name="margin_top_button_create">40dp</dimen>
+    <dimen name="margin_left_textview">4dp</dimen>
+    <dimen name="margin_bottom_textview">15dp</dimen>
+
+    <dimen name="weight_default">0dp</dimen>
+
+    <dimen name="logo">110dp</dimen>
+    <dimen name="cancel">40dp</dimen>
+
 
 </resources>

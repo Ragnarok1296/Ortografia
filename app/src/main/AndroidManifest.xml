@@ -9,19 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- Login -->
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Crear cuenta -->
         <activity
-            android:name=".CreateAccountActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".MainMenuActivity"></activity>
+            android:name=".controllers.account.CreateAccountActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- Menu principal -->
+        <activity android:name=".controllers.menus.MainMenuActivity" />
+        <activity android:name=".controllers.account.UpdateAccountActivity"></activity>
     </application>
 
 </manifest>
