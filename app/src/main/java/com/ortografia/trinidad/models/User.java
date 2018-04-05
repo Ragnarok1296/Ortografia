@@ -1,5 +1,7 @@
 package com.ortografia.trinidad.models;
 
+//En este POJO se podra asignar y acceder a la informacion del usuario
+
 public class User {
 
     private static String email;

@@ -22,6 +22,9 @@ import com.ortografia.trinidad.models.Utilities;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
+    //Creacion del objeto conexion
+    ConecctionSQLiteHelper conn;
+
     //Elementos del activity
     EditText etName;
     EditText etLastName;
@@ -35,6 +38,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         hideBar();
+
+        //Instanciacion de la conexion
+        conn = new ConecctionSQLiteHelper(this, "bdOrtografia", null, 1);
 
         //Llamada a elementos del layout
         etName = (EditText) findViewById(R.id.etName);
@@ -70,7 +76,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Verificar si algun campo esta vacio
+                //Verificar si los campos estan llenos
                 if(!"".equals(etName.getText().toString()) &&
                         !"".equals(etLastName.getText().toString()) &&
                         !"".equals(etEmail.getText().toString()) &&
@@ -92,6 +98,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             hideBar();
     }
 
+    //Oculta las barras para la inmersion completa
     public void hideBar(){
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -103,26 +110,28 @@ public class CreateAccountActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
 
+    //Refistrar usuario
     private void registerUser() {
 
         try{
 
-            //Conexion a base de datos
-            ConecctionSQLiteHelper conn = new ConecctionSQLiteHelper(this, "bdOrtografia", null, 1);
-
+            //Se abre la conexion con la bd
             SQLiteDatabase db = conn.getWritableDatabase();
 
+            //Se guardan los valores a insertar en un ContentValues
             ContentValues values = new ContentValues();
             values.put(Utilities.FIELD_EMAIL,etEmail.getText().toString());
             values.put(Utilities.FIELD_NAME,etName.getText().toString());
             values.put(Utilities.FIELD_LASTNAME,etLastName.getText().toString());
             values.put(Utilities.FIELD_PASSWORD,etPassword.getText().toString());
 
+            //Se inserta y se almacena el id del registro insertado
             Long idResult = db.insert(Utilities.TABLE_USERS,Utilities.FIELD_EMAIL,values);
 
+            //Cerrar conexion
             db.close();
 
-            // -1 = Ya existe usuario, 1 = no existe usuario
+            // -1 = Ya existe usuario
             if(idResult == -1)
                 alertWarning("EmailWarning");
             else
@@ -136,6 +145,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     }
 
+    //Alerta indicando que el registro fue exitoso
     public void alertCorrect() {
         new AlertDialog.Builder(CreateAccountActivity.this)
                 .setTitle("Felicidades")
@@ -153,6 +163,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 .show();
     }
 
+    //Alerta indicando si no se llenaron todos los campos o si el email ya esta registrado
     public void alertWarning(String option) {
 
         if("NullFieldsWarning".equals(option)){
@@ -188,6 +199,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     }
 
+    //Error por si la aplicacion fallo al registar
     public void errorCreateAccount(){
 
         new AlertDialog.Builder(CreateAccountActivity.this)

@@ -15,16 +15,15 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.ortografia.trinidad.LoginActivity;
 import com.ortografia.trinidad.R;
-import com.ortografia.trinidad.controllers.menus.MainMenuActivity;
+import com.ortografia.trinidad.controllers.menus.MenuActivity;
 import com.ortografia.trinidad.models.ConecctionSQLiteHelper;
 import com.ortografia.trinidad.models.User;
 import com.ortografia.trinidad.models.Utilities;
 
 public class UpdateAccountActivity extends AppCompatActivity {
 
-    //Conexion a base de datos
+    //Creacion del objeto conexion
     ConecctionSQLiteHelper conn;
 
     //Elementos del activity
@@ -41,7 +40,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_account);
         hideBar();
 
-        //Conexion a base de datos
+        //Instanciacion de la conexion
         conn = new ConecctionSQLiteHelper(this, "bdOrtografia", null, 1);
 
         //Llamada a elementos del layout
@@ -74,8 +73,8 @@ public class UpdateAccountActivity extends AppCompatActivity {
         ibCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Buscar como saber en que pantalla invocaron esta
-                Intent i = new Intent(UpdateAccountActivity.this,MainMenuActivity.class);
+                //Buscar: como saber en que pantalla invocaron esta
+                Intent i = new Intent(UpdateAccountActivity.this,MenuActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
                 startActivity(i);
             }
@@ -106,6 +105,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
             hideBar();
     }
 
+    //Oculta las barras para la inmersion completa
     public void hideBar(){
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -117,20 +117,27 @@ public class UpdateAccountActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
 
+    //Actualizar datos de la cuenta
     private void updateUser() {
 
         try{
 
+            //Se inicia la conexion
             SQLiteDatabase db = conn.getWritableDatabase();
-            String[] parameters = {txtEmail.getText().toString()};
-            ContentValues values = new ContentValues();
 
+            //Se indica cual es el valor que sera utilizado en el where
+            String[] parameters = {txtEmail.getText().toString()};
+
+            //Se colocan los datos a actualizar en un ContentValues
+            ContentValues values = new ContentValues();
             values.put(Utilities.FIELD_NAME,etName.getText().toString());
             values.put(Utilities.FIELD_LASTNAME,etLastName.getText().toString());
             values.put(Utilities.FIELD_PASSWORD,etPassword.getText().toString());
 
+            //Se actualiza la tabla
             db.update(Utilities.TABLE_USERS,values,Utilities.FIELD_EMAIL+"=?",parameters);
 
+            //Se cierra la conexion
             db.close();
 
             alertCorrect();
@@ -143,6 +150,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
     }
 
+    //Alerta para indicar si el registro fue exitoso
     public void alertCorrect() {
         new AlertDialog.Builder(UpdateAccountActivity.this)
                 .setTitle("Felicidades")
@@ -151,7 +159,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Intent i = new Intent(UpdateAccountActivity.this,MainMenuActivity.class);
+                                Intent i = new Intent(UpdateAccountActivity.this,MenuActivity.class);
                                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
                                 startActivity(i);
                                 dialog.cancel();
@@ -160,6 +168,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
                 .show();
     }
 
+    //Alerta para indicar que se llenen todos los campos
     public void alertWarning() {
 
         new AlertDialog.Builder(UpdateAccountActivity.this)
@@ -176,6 +185,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
     }
 
+    //Error por si la aplicacion fallo al actualizar
     public void errorCreateAccount(){
 
         new AlertDialog.Builder(UpdateAccountActivity.this)

@@ -26,9 +26,14 @@
             android:name=".controllers.account.CreateAccountActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
+        <!-- UpdateAccount -->
+        <activity
+            android:name=".controllers.account.UpdateAccountActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
         <!-- Menu principal -->
-        <activity android:name=".controllers.menus.MainMenuActivity" />
-        <activity android:name=".controllers.account.UpdateAccountActivity"></activity>
+        <activity android:name=".controllers.menus.MenuActivity"
+            android:theme="@style/ActionBarTheme"></activity>
     </application>
 
 </manifest>

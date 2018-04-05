@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mHome"
+        android:title="Inicio"
+        android:icon="@drawable/correct"/>
+
+    <item
+        android:id="@+id/mLeasson1"
+        android:title="Acentuacion"
+        android:icon="@drawable/correct"/>
+
+    <item
+        android:id="@+id/mLeasson2"
+        android:title="Diferencias"
+        android:icon="@drawable/correct"/>
+
+    <item
+        android:id="@+id/mLeasson3"
+        android:title="Puntuacion"
+        android:icon="@drawable/correct"/>
+
+    <item
+        android:id="@+id/mConfiguration"
+        android:title="Ajustes"
+        android:icon="@drawable/correct"/>
+
+    <item
+        android:id="@+id/mLogOut"
+        android:title="Cerrar Sesion"
+        android:icon="@drawable/correct"/>
+
+</menu>

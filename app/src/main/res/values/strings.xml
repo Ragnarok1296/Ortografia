@@ -18,7 +18,9 @@
     <string name="txtEmail">Email</string>
     <string name="btnUpdateAccount">ACTUALIZAR</string>
 
-
+    <!-- Drawer -->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 
 </resources>

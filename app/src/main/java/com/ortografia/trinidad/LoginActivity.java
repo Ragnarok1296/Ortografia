@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ortografia.trinidad.controllers.account.CreateAccountActivity;
-import com.ortografia.trinidad.controllers.menus.MainMenuActivity;
+import com.ortografia.trinidad.controllers.menus.MenuActivity;
 import com.ortografia.trinidad.models.ConecctionSQLiteHelper;
 import com.ortografia.trinidad.models.User;
 import com.ortografia.trinidad.models.Utilities;
@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
                     User.setPassword(password.toString());
 
                     //Se inicia la actividad MainMenu
-                    Intent i = new Intent(LoginActivity.this,MainMenuActivity.class);
+                    Intent i = new Intent(LoginActivity.this,MenuActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
                     startActivity(i);
 

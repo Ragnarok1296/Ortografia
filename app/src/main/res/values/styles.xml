@@ -38,6 +38,12 @@
         <item name="android:textColor">@color/tertiary_text</item>
     </style>
 
+    <!-- Theme action bar -->
+    <style name="ActionBarTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 
 
 </resources>
