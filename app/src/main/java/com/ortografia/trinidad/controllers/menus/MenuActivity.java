@@ -9,11 +9,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ortografia.trinidad.LoginActivity;
 import com.ortografia.trinidad.R;
 import com.ortografia.trinidad.controllers.account.UpdateAccountActivity;
+import com.ortografia.trinidad.models.User;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,7 +51,10 @@ public class MenuActivity extends AppCompatActivity
 
         //Se carga el fragmeto de menu principal
         fragmentManager.beginTransaction().replace(R.id.container, new MainMenuFragment()).commit();
-        getSupportActionBar().setTitle(R.string.txtMainMenu);
+
+        //Se carga el nombre del usuario en el texto para darle la bienvenida
+        TextView txtUser = (TextView) navigationView.getHeaderView(0).findViewById(R.id.txtUserNavView);
+        txtUser.setText(User.getName().toString() + " " + User.getLastName().toString());
 
     }
 
@@ -83,19 +89,15 @@ public class MenuActivity extends AppCompatActivity
 
         //Se compara con las opciones para poder cargar la activity o el fragment
         if (id == R.id.nav_mainmenu) {
-            getSupportActionBar().setTitle(R.string.txtMainMenu);
             fragmentManager.beginTransaction().replace(R.id.container, new MainMenuFragment()).commit();
 
         } else if (id == R.id.nav_module1) {
-            getSupportActionBar().setTitle(R.string.txtModule1);
             fragmentManager.beginTransaction().replace(R.id.container, new Module1MenuFragment()).commit();
 
         } else if (id == R.id.nav_module2) {
-            getSupportActionBar().setTitle(R.string.txtModule2);
             fragmentManager.beginTransaction().replace(R.id.container, new Module2MenuFragment()).commit();
 
         } else if (id == R.id.nav_module3) {
-            getSupportActionBar().setTitle(R.string.txtModule3);
             fragmentManager.beginTransaction().replace(R.id.container, new Module3MenuFragment()).commit();
 
         } else if (id == R.id.nav_setting) {

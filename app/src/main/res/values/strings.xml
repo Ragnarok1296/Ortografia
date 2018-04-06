@@ -33,7 +33,7 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Bienvenido</string>
+    <string name="nav_header_title">Bienvenido(a)</string>
     <string name="mMainMenu">Inicio</string>
     <string name="mModule1">Acentuacion</string>
     <string name="mModule2">Diferencias</string>
@@ -44,5 +44,14 @@
     <string name="exitApplicattion">"Vuelve a presionar para salir"</string>
     <string name="txtOthers">Otros</string>
 
+    <!-- Alert Dialogs -->
+    <string name="errorApplicattion">Error en aplicacion</string>
+    <string name="passwordIncorrect">La contraseña es incorrecta!!!</string>
+    <string name="fill_two_fields">Llene los dos campos!!!</string>
+    <string name="update_successful">Actualizacion Exitosa</string>
+    <string name="fill_all_fields">Llene todos los campos</string>
+    <string name="try_again">La aplicacion fallo, intantalo nuevamente!!!</string>
+    <string name="create_account_successful">Registro Exitoso</string>
+    <string name="account_exist">El email ya existe!!!</string>
 
 </resources>

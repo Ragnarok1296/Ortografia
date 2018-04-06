@@ -15,8 +15,8 @@
     <!-- Logo -->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="@dimen/logo"
-        android:layout_height="@dimen/logo"
+        android:layout_width="@dimen/logoMin"
+        android:layout_height="@dimen/logoMin"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:layout_gravity="center"
@@ -33,7 +33,7 @@
 
     <!-- Nombre de usuario -->
     <TextView
-        android:id="@+id/txtUser"
+        android:id="@+id/txtUserNavView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>

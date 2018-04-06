@@ -5,10 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".controllers.menus.Module2MenuFragment">
 
-    <TextView
+    <!-- Contenedor con curvas -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Modulo 2"
-        android:gravity="center"/>
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_top_textinputlayout"
+        android:gravity="center"
+        android:background="@drawable/curved">
+
+        <!-- Prueba, borrar ya que este textView es basura-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="@string/txtModule2"
+            android:textSize="@dimen/size_hint_default"/>
+
+    </LinearLayout>
 
 </FrameLayout>

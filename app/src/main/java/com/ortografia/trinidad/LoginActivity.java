@@ -151,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
 
         }catch (Exception e){
 
-            Toast.makeText(getApplicationContext(),"Error en aplicacion",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),R.string.errorApplicattion,Toast.LENGTH_SHORT).show();
 
         }
 
@@ -164,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
 
             new AlertDialog.Builder(LoginActivity.this)
                     .setTitle("Error")
-                    .setMessage("La contraseña incorrecta!!!")
+                    .setMessage(R.string.passwordIncorrect)
                     .setIcon(R.drawable.error)
                     .setPositiveButton("OK",
                             new DialogInterface.OnClickListener() {
@@ -199,7 +199,7 @@ public class LoginActivity extends AppCompatActivity {
 
         new AlertDialog.Builder(LoginActivity.this)
                 .setTitle("Warning")
-                .setMessage("Llene los dos campos!!!")
+                .setMessage(R.string.fill_two_fields)
                 .setIcon(R.drawable.warning)
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {

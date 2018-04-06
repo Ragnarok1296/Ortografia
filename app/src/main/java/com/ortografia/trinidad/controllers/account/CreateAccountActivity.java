@@ -148,8 +148,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     //Alerta indicando que el registro fue exitoso
     public void alertCorrect() {
         new AlertDialog.Builder(CreateAccountActivity.this)
-                .setTitle("Felicidades")
-                .setMessage("Registro Exitoso")
+                .setTitle("Congratulations")
+                .setMessage(R.string.create_account_successful)
                 .setIcon(R.drawable.correct)
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
@@ -170,7 +170,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
             new AlertDialog.Builder(CreateAccountActivity.this)
                     .setTitle("Warning")
-                    .setMessage("Llene todos los campos!!!")
+                    .setMessage(R.string.fill_all_fields)
                     .setIcon(R.drawable.warning)
                     .setPositiveButton("OK",
                             new DialogInterface.OnClickListener() {
@@ -185,7 +185,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
             new AlertDialog.Builder(CreateAccountActivity.this)
                     .setTitle("Warning")
-                    .setMessage("El email ya existe!!!")
+                    .setMessage(R.string.account_exist)
                     .setIcon(R.drawable.warning)
                     .setPositiveButton("OK",
                             new DialogInterface.OnClickListener() {
@@ -204,7 +204,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         new AlertDialog.Builder(CreateAccountActivity.this)
                 .setTitle("Error")
-                .setMessage("La aplicacion fallo, intantalo nuevamente!!!")
+                .setMessage(R.string.try_again)
                 .setIcon(R.drawable.error)
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {

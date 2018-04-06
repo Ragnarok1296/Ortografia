@@ -3,12 +3,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controllers.menus.MainMenuFragment">
+    tools:context=".controllers.menus.MainMenuFragment"
+    >
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Menu Principal"
-        android:gravity="center"/>
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/colorPrimaryDark">
+
+        <!-- Logo y welcome -->
+        <ImageView
+            android:layout_width="@dimen/logoNormal"
+            android:layout_height="@dimen/logoNormal"
+            android:src="@drawable/logo"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_header_title"
+            android:textColor="@color/tertiary_text"
+            android:textSize="@dimen/text_welcome"/>
+        <TextView
+            android:id="@+id/txtUserFragmentMainMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tertiary_text"
+            android:textSize="@dimen/text_welcome"
+            android:layout_marginBottom="@dimen/margin_bottom_textview"/>
+
+        <!-- Contenedor con curvas -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_top_textinputlayout"
+            android:gravity="center"
+            android:background="@drawable/curved">
+
+            <!-- Menu modulo 1 -->
+            <ImageButton
+                android:id="@+id/ibModule1"
+                android:layout_width="@dimen/logoMin"
+                android:layout_height="@dimen/logoMin"
+                android:background="@drawable/module1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text"
+                android:text="@string/txtModule1"
+                android:textSize="@dimen/size_hint_default"/>
+
+            <!-- Menu modulo 2 -->
+            <ImageButton
+                android:id="@+id/ibModule2"
+                android:layout_width="@dimen/logoMin"
+                android:layout_height="@dimen/logoMin"
+                android:background="@drawable/module2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text"
+                android:text="@string/txtModule2"
+                android:textSize="@dimen/size_hint_default"/>
+
+            <!-- Menu modulo 3 -->
+            <ImageButton
+                android:id="@+id/ibModule3"
+                android:layout_width="@dimen/logoMin"
+                android:layout_height="@dimen/logoMin"
+                android:background="@drawable/module3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text"
+                android:text="@string/txtModule3"
+                android:textSize="@dimen/size_hint_default"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

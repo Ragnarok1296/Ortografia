@@ -100,9 +100,6 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(UpdateAccountActivity.this,MenuActivity.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
-
         super.onBackPressed();
 
     }
@@ -149,6 +146,10 @@ public class UpdateAccountActivity extends AppCompatActivity {
             //Se cierra la conexion
             db.close();
 
+            User.setName(etName.getText().toString());
+            User.setLastName(etLastName.getText().toString());
+            User.setPassword(etPassword.getText().toString());
+
             alertCorrect();
 
         }catch(Exception e) {
@@ -162,13 +163,15 @@ public class UpdateAccountActivity extends AppCompatActivity {
     //Alerta para indicar si el registro fue exitoso
     public void alertCorrect() {
         new AlertDialog.Builder(UpdateAccountActivity.this)
-                .setTitle("Felicidades")
-                .setMessage("Actializacion Exitosa")
+                .setTitle("Congratulations")
+                .setMessage(R.string.update_successful)
                 .setIcon(R.drawable.correct)
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                onBackPressed();
+                                Intent i = new Intent(UpdateAccountActivity.this, MenuActivity.class);
+                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
+                                startActivity(i);
                                 dialog.cancel();
                             }
                         })
@@ -180,7 +183,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
         new AlertDialog.Builder(UpdateAccountActivity.this)
                 .setTitle("Warning")
-                .setMessage("Llene todos los campos!!!")
+                .setMessage(R.string.fill_all_fields)
                 .setIcon(R.drawable.warning)
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
@@ -197,7 +200,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
         new AlertDialog.Builder(UpdateAccountActivity.this)
                 .setTitle("Error")
-                .setMessage("La aplicacion fallo, intantalo nuevamente!!!")
+                .setMessage(R.string.try_again)
                 .setIcon(R.drawable.error)
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
