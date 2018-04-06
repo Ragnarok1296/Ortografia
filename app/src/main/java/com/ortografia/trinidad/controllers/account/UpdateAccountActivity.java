@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ortografia.trinidad.R;
 import com.ortografia.trinidad.controllers.menus.MenuActivity;
@@ -73,10 +76,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
         ibCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Buscar: como saber en que pantalla invocaron esta
-                Intent i = new Intent(UpdateAccountActivity.this,MenuActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
-                startActivity(i);
+                onBackPressed();
             }
         });
 
@@ -96,6 +96,15 @@ public class UpdateAccountActivity extends AppCompatActivity {
                     alertWarning();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(UpdateAccountActivity.this,MenuActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
+
+        super.onBackPressed();
+
     }
 
     @Override
@@ -159,9 +168,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Intent i = new Intent(UpdateAccountActivity.this,MenuActivity.class);
-                                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
-                                startActivity(i);
+                                onBackPressed();
                                 dialog.cancel();
                             }
                         })

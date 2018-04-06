@@ -22,5 +22,13 @@
     <dimen name="logo">110dp</dimen>
     <dimen name="cancel">40dp</dimen>
 
+    <!-- Menu -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="navigation_view_width">250dp</dimen>
+
 
 </resources>

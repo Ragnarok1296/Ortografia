@@ -22,5 +22,27 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+    <!-- Menu -->
+    <string name="txtMainMenu">Aprender Ortografia</string>
+    <string name="txtModule1">Acentuacion</string>
+    <string name="txtModule2">Diferencias</string>
+    <string name="txtModule3">Puntuacion</string>
+
+
+    <!-- Menu desplegable -->
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Bienvenido</string>
+    <string name="mMainMenu">Inicio</string>
+    <string name="mModule1">Acentuacion</string>
+    <string name="mModule2">Diferencias</string>
+    <string name="mModule3">Puntuacion</string>
+    <string name="mSettings">Ajustes</string>
+    <string name="mLogOut">Cerrar Sesion</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="exitApplicattion">"Vuelve a presionar para salir"</string>
+    <string name="txtOthers">Otros</string>
+
 
 </resources>
