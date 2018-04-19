@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controllers.account.CreateAccountActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:background="@color/colorPrimary">
+
+        <!-- Icono -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/weight_default"
+            android:layout_weight="25">
+
+            <!-- Boton Regreasar -->
+            <ImageButton
+                android:id="@+id/ibCancel"
+                android:layout_width="@dimen/cancel"
+                android:layout_height="@dimen/cancel"
+                android:layout_margin="@dimen/margin_cancel_button"
+                android:background="@drawable/cancel"/>
+
+            <!-- Logo -->
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/logo"
+                android:layout_height="@dimen/logo"
+                android:layout_centerInParent="true"
+                android:src="@drawable/logo"
+                />
+
+        </RelativeLayout>
+
+        <!-- Datos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/weight_default"
+            android:paddingLeft="@dimen/padding_left_default"
+            android:paddingRight="@dimen/padding_right_default"
+            android:layout_weight="75"
+            android:orientation="vertical">
+
+            <!-- Login -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtDeleteAccount"
+                android:textColor="@color/tertiary_text"
+                android:textSize="@dimen/upper_letters"/>
+
+            <!-- Email -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_textinputlayout"
+                android:layout_marginBottom="@dimen/margin_bottom_textinputlayout"
+                android:hint="@string/hintEmailVerify"
+                android:textColorHint="@color/tertiary_text"
+                app:hintTextAppearance="@style/FloatingLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:maxLength="50"
+                    android:theme="@style/EditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Password -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_textinputlayout"
+                android:layout_marginBottom="@dimen/margin_bottom_textinputlayout"
+                android:hint="@string/hintPassword"
+                android:textColorHint="@color/tertiary_text"
+                app:hintTextAppearance="@style/FloatingLabel"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/tertiary_text">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:maxLength="16"
+                    android:theme="@style/EditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- RepeatPassword -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_textinputlayout"
+                android:layout_marginBottom="@dimen/margin_bottom_textinputlayout"
+                android:hint="@string/hintRepeatPassword"
+                android:textColorHint="@color/tertiary_text"
+                app:hintTextAppearance="@style/FloatingLabel"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/tertiary_text">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etRepeatPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:maxLength="16"
+                    android:theme="@style/EditText"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- CreateAccount -->
+            <Button
+                android:id="@+id/btnDeleteAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_button_create"
+                android:text="@string/btnDeleteAccount"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/txt_Bbutton_default"
+                android:theme="@style/RaisedButtonDeleteAccount"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -4,8 +4,6 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,49 +14,41 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.ortografia.trinidad.LoginActivity;
 import com.ortografia.trinidad.R;
 import com.ortografia.trinidad.controllers.menus.MenuActivity;
 import com.ortografia.trinidad.models.ConecctionSQLiteHelper;
 import com.ortografia.trinidad.models.User;
 import com.ortografia.trinidad.models.Utilities;
 
-public class UpdateAccountActivity extends AppCompatActivity {
+public class DeleteAccountActivity extends AppCompatActivity {
 
     //Creacion del objeto conexion
     ConecctionSQLiteHelper conn;
 
     //Elementos del activity
-    EditText etName;
-    EditText etLastName;
-    TextView txtEmail;
+    EditText etEmail;
     EditText etPassword;
+    EditText etRepeatPassword;
     ImageButton ibCancel;
-    Button btnUpdateAccount;
+    Button btnDeleteAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_account);
+        setContentView(R.layout.activity_delete_account);
         hideBar();
 
         //Instanciacion de la conexion
         conn = new ConecctionSQLiteHelper(this, "bdOrtografia", null, 1);
 
         //Llamada a elementos del layout
-        etName = (EditText) findViewById(R.id.etName);
-        etLastName = (EditText) findViewById(R.id.etLastName);
-        txtEmail = (TextView) findViewById(R.id.txtEmail);
+        etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
+        etRepeatPassword = (EditText) findViewById(R.id.etRepeatPassword);
         ibCancel = (ImageButton) findViewById(R.id.ibCancel);
-        btnUpdateAccount = (Button) findViewById(R.id.btnCreateAccount);
-
-        //Llenado de los campos
-        etName.setText(User.getName());
-        txtEmail.setText(User.getEmail());
-        etLastName.setText(User.getLastName());
-        etPassword.setText(User.getPassword());
+        btnDeleteAccount = (Button) findViewById(R.id.btnDeleteAccount);
 
         //Volver a la inmersion de pantalla completa
         etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -81,16 +71,24 @@ public class UpdateAccountActivity extends AppCompatActivity {
         });
 
         //Evento clic en actualizar
-        btnUpdateAccount.setOnClickListener(new View.OnClickListener() {
+        btnDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Verificar si algun campo esta vacio
-                if(!"".equals(etName.getText().toString()) &&
-                        !"".equals(etLastName.getText().toString()) &&
-                        !"".equals(txtEmail.getText().toString()) &&
-                        !"".equals(etPassword.getText().toString()) ){
+                if(!"".equals(etEmail.getText().toString()) &&
+                        !"".equals(etPassword.getText().toString()) &&
+                        !"".equals(etRepeatPassword.getText().toString()) ){
 
-                    question();
+                    if(etEmail.getText().toString().equals(User.getEmail().toString())) {
+                        if (etPassword.getText().toString().equals(etRepeatPassword.getText().toString())) {
+                            if (etPassword.getText().toString().equals(User.getPassword().toString()))
+                                question();
+                            else
+                                wrongPassword();
+                        }else
+                            wrongRepeatPassword();
+                    }else
+                        wrongUser();
 
                 }else
                     alertWarning();
@@ -124,7 +122,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
     }
 
     //Actualizar datos de la cuenta
-    private void updateUser() {
+    private void deleteUser() {
 
         try{
 
@@ -132,23 +130,13 @@ public class UpdateAccountActivity extends AppCompatActivity {
             SQLiteDatabase db = conn.getWritableDatabase();
 
             //Se indica cual es el valor que sera utilizado en el where
-            String[] parameters = {txtEmail.getText().toString()};
+            String[] parameters = {etEmail.getText().toString()};
 
-            //Se colocan los datos a actualizar en un ContentValues
-            ContentValues values = new ContentValues();
-            values.put(Utilities.FIELD_NAME,etName.getText().toString());
-            values.put(Utilities.FIELD_LASTNAME,etLastName.getText().toString());
-            values.put(Utilities.FIELD_PASSWORD,etPassword.getText().toString());
-
-            //Se actualiza la tabla
-            db.update(Utilities.TABLE_USERS,values,Utilities.FIELD_EMAIL+"=?",parameters);
+            //Se elimina de la tabla el registro
+            db.delete(Utilities.TABLE_USERS,Utilities.FIELD_EMAIL + "=?",parameters);
 
             //Se cierra la conexion
             db.close();
-
-            User.setName(etName.getText().toString());
-            User.setLastName(etLastName.getText().toString());
-            User.setPassword(etPassword.getText().toString());
 
             alertCorrect();
 
@@ -160,16 +148,16 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
     }
 
-    //Alerta para indicar si el registro fue exitoso
+    //Alerta para indicar si la eliminacion fue exitosa
     public void alertCorrect() {
-        new AlertDialog.Builder(UpdateAccountActivity.this)
-                .setTitle("Congratulations")
-                .setMessage(R.string.update_successful)
+        new AlertDialog.Builder(DeleteAccountActivity.this)
+                .setTitle("Bye")
+                .setMessage(R.string.delete_successful)
                 .setIcon(R.drawable.correct)
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Intent i = new Intent(UpdateAccountActivity.this, MenuActivity.class);
+                                Intent i = new Intent(DeleteAccountActivity.this, LoginActivity.class);
                                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
                                 startActivity(i);
                                 dialog.cancel();
@@ -181,7 +169,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
     //Alerta para indicar que se llenen todos los campos
     public void alertWarning() {
 
-        new AlertDialog.Builder(UpdateAccountActivity.this)
+        new AlertDialog.Builder(DeleteAccountActivity.this)
                 .setTitle("Warning")
                 .setMessage(R.string.fill_all_fields)
                 .setIcon(R.drawable.warning)
@@ -195,10 +183,10 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
     }
 
-    //Error por si la aplicacion fallo al actualizar
+    //Error por si la aplicacion fallo al eliminar
     public void errorCreateAccount(){
 
-        new AlertDialog.Builder(UpdateAccountActivity.this)
+        new AlertDialog.Builder(DeleteAccountActivity.this)
                 .setTitle("Error")
                 .setMessage(R.string.try_again)
                 .setIcon(R.drawable.error)
@@ -212,16 +200,67 @@ public class UpdateAccountActivity extends AppCompatActivity {
 
     }
 
+    //Alerta para indicar que el email no coincide con la cuenta
+    public void wrongUser() {
+
+        new AlertDialog.Builder(DeleteAccountActivity.this)
+                .setTitle("Warning")
+                .setMessage(R.string.emailIncorrect)
+                .setIcon(R.drawable.error)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                .show();
+
+    }
+
+    //Alerta para indicar que las dos contraseñas son diferentes
+    public void wrongRepeatPassword() {
+
+        new AlertDialog.Builder(DeleteAccountActivity.this)
+                .setTitle("Warning")
+                .setMessage(R.string.passwordRepeatIncorrect)
+                .setIcon(R.drawable.warning)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                .show();
+
+    }
+
+    //Alerta para indicar que la contraseña es incorrecta
+    public void wrongPassword() {
+
+        new AlertDialog.Builder(DeleteAccountActivity.this)
+                .setTitle("Warning")
+                .setMessage(R.string.passwordIncorrect)
+                .setIcon(R.drawable.warning)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                .show();
+
+    }
+
     //Desicion
     public void question() {
-        new AlertDialog.Builder(UpdateAccountActivity.this)
+        new AlertDialog.Builder(DeleteAccountActivity.this)
                 .setTitle("Warning")
                 .setMessage(R.string.are_you_sure)
                 .setIcon(R.drawable.warning)
                 .setPositiveButton("Si",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                updateUser();
+                                deleteUser();
                                 dialog.cancel();
                             }
                         })

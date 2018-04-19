@@ -53,5 +53,20 @@
     <string name="try_again">La aplicacion fallo, intantalo nuevamente!!!</string>
     <string name="create_account_successful">Registro Exitoso</string>
     <string name="account_exist">El email ya existe!!!</string>
+    <string name="delete_successful">Se ha borrado la cuenta, hasta pronto.</string>
+    <string name="passwordRepeatIncorrect">Las contraseñas no coinciden</string>
+    <string name="emailIncorrect">El email no coincide con la cuenta</string>
+    <string name="are_you_sure">¿Estas seguro de esto?</string>
+
+    <!-- Settings -->
+    <string name="txtSettings">AJUSTES</string>
+    <string name="txtUpdateUser">Actualizar datos de usuario:</string>
+    <string name="txtDeleteUser">Eliminar datos de usuario:</string>
+
+    <!-- DeleteAccount -->
+    <string name="txtDeleteAccount">ELIMINAR</string>
+    <string name="hintEmailVerify">Verifica tu email</string>
+    <string name="hintRepeatPassword">Repita su contraseña</string>
+    <string name="btnDeleteAccount">ELIMINAR</string>
 
 </resources>

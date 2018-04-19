@@ -25,6 +25,9 @@ import com.ortografia.trinidad.models.Utilities;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //Tiempo que se le dara para hacer el segundo clic para salir
+    private static long presionado;
+
     //Creacion del objeto conexion
     ConecctionSQLiteHelper conn;
 
@@ -83,6 +86,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Este es el evento para el doble clic
+        if (presionado + 2000 > System.currentTimeMillis())
+            super.onBackPressed();
+        else
+            Toast.makeText(this, R.string.exitApplicattion , Toast.LENGTH_SHORT).show();
+        presionado = System.currentTimeMillis();
     }
 
     @Override

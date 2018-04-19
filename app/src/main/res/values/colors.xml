@@ -16,5 +16,7 @@
     <!-- Others -->
     <color name="icons">#FFFFFF</color>
     <color name="divider">#6c6c6c</color>
+    <color name="btn_delete">#790707</color>
+    <color name="btn_delete_click">#960a0a</color>
 
 </resources>

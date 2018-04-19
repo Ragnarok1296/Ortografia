@@ -101,7 +101,7 @@ public class MenuActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.container, new Module3MenuFragment()).commit();
 
         } else if (id == R.id.nav_setting) {
-            Intent i = new Intent(MenuActivity.this,UpdateAccountActivity.class);
+            Intent i = new Intent(MenuActivity.this,SettingsActivity.class);
             startActivity(i);
 
         } else if (id == R.id.nav_logout) {

@@ -38,5 +38,8 @@
     <dimen name="padding_container">20dp</dimen>
     <dimen name="text_welcome">20sp</dimen>
 
+    <!-- Settings -->
+    <dimen name="textview_default_margintop">30dp</dimen>
+
 
 </resources>

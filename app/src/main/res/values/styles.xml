@@ -47,5 +47,11 @@
         <item name="android:textColorPrimary">@color/tertiary_text</item>
     </style>
 
+    <!-- Styles Delete -->
+    <style name="RaisedButtonDeleteAccount" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">@color/btn_delete</item>
+        <item name="colorControlHighlight">@color/btn_delete_click</item>
+        <item name="android:textColor">@color/tertiary_text</item>
+    </style>
 
 </resources>
