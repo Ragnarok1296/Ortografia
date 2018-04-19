@@ -22,6 +22,20 @@
             android:text="@string/txtModule3"
             android:textSize="@dimen/size_hint_default"/>
 
+        <!-- Mantenimiento -->
+        <ImageView
+            android:layout_width="@dimen/logo"
+            android:layout_height="@dimen/logo"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/maintenance"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="@string/txtMaintenance"
+            android:textSize="@dimen/size_hint_default"/>
+
     </LinearLayout>
 
 </FrameLayout>

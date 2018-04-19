@@ -69,4 +69,12 @@
     <string name="hintRepeatPassword">Repita su contraseña</string>
     <string name="btnDeleteAccount">ELIMINAR</string>
 
+    <!-- Mantenimiento -->
+    <string name="txtMaintenance">En mantenimiento!!!</string>
+    <string name="txtcoming_soon">Proximamente...</string>
+
+    <!-- Notificaion -->
+    <string name="notification_title">Regresa</string>
+    <string name="notification_content">Aun sigo aqui, utilizame.</string>
+
 </resources>

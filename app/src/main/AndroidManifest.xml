@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ortografia.trinidad">
 
+    <uses-permission android:name="android.permission.SET_ALARM"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -45,6 +47,8 @@
         <activity
             android:name=".controllers.menus.SettingsActivity"
             android:screenOrientation="portrait" />
+        <!-- NotificationService -->
+        <receiver android:name=".models.NotificationService"/>
     </application>
 
 </manifest>
