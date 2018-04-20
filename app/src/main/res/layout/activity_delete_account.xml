@@ -25,7 +25,7 @@
                 android:layout_width="@dimen/cancel"
                 android:layout_height="@dimen/cancel"
                 android:layout_margin="@dimen/margin_cancel_button"
-                android:background="@drawable/cancel"/>
+                android:background="@drawable/back"/>
 
             <!-- Logo -->
             <ImageView
