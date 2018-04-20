@@ -1,6 +1,8 @@
 package com.ortografia.trinidad.controllers.menus;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -105,6 +107,9 @@ public class MenuActivity extends AppCompatActivity
             startActivity(i);
 
         } else if (id == R.id.nav_logout) {
+            //Se designa el valor default para que asi ahora si inicie la aplicacion desde el login
+            SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences("TAG", Context.MODE_PRIVATE);
+            sharedPrefs.edit().putString("Status","Login").apply();
             Intent i = new Intent(MenuActivity.this,LoginActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
             startActivity(i);

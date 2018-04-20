@@ -148,10 +148,10 @@ public class CreateAccountActivity extends AppCompatActivity {
     //Alerta indicando que el registro fue exitoso
     public void alertCorrect() {
         new AlertDialog.Builder(CreateAccountActivity.this)
-                .setTitle("Congratulations")
+                .setTitle(R.string.title_welcome)
                 .setMessage(R.string.create_account_successful)
                 .setIcon(R.drawable.correct)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Intent i = new Intent(CreateAccountActivity.this,LoginActivity.class);
@@ -169,10 +169,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         if("NullFieldsWarning".equals(option)){
 
             new AlertDialog.Builder(CreateAccountActivity.this)
-                    .setTitle("Warning")
+                    .setTitle(R.string.title_warning)
                     .setMessage(R.string.fill_all_fields)
                     .setIcon(R.drawable.warning)
-                    .setPositiveButton("OK",
+                    .setPositiveButton(R.string.positive_button_ok,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
@@ -184,10 +184,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         else if("EmailWarning".equals(option)){
 
             new AlertDialog.Builder(CreateAccountActivity.this)
-                    .setTitle("Warning")
+                    .setTitle(R.string.title_warning)
                     .setMessage(R.string.account_exist)
                     .setIcon(R.drawable.warning)
-                    .setPositiveButton("OK",
+                    .setPositiveButton(R.string.positive_button_ok,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
@@ -203,10 +203,10 @@ public class CreateAccountActivity extends AppCompatActivity {
     public void errorCreateAccount(){
 
         new AlertDialog.Builder(CreateAccountActivity.this)
-                .setTitle("Error")
+                .setTitle(R.string.title_error)
                 .setMessage(R.string.try_again)
                 .setIcon(R.drawable.error)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();

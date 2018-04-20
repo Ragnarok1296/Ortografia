@@ -3,8 +3,10 @@ package com.ortografia.trinidad;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
@@ -47,19 +49,25 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //Codigo para verificar si ya se habia iniciado sesion y asi mandar al menu
+        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("TAG", Context.MODE_PRIVATE);
+        String valor = sharedPref.getString("Status", "Login");
+
+        // Si el valor guardo es diferente al valor por defecto, significa que ya inicio sesio asi que lo puedes enviar al main
+        if (!valor.equals("Login")) {
+            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
+            startActivity(intent);
+        }
+
+        //Se inicia la inmersion completa
         hideBar();
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 12);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        if (calendar.getTime().compareTo(new Date()) < 0) calendar.add(Calendar.DAY_OF_MONTH, 1);
-
-        Intent intent = new Intent(getApplicationContext(), NotificationService.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        //alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmManager.INTERVAL_DAY, pendingIntent);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),24*60*60*1000,pendingIntent);
+        //se crean las 3 notificaciones en diferente hora
+        notification(9,0,0,0);
+        notification(15,0,0,1);
+        notification(21,0,0,2);
 
         //Instanciacion de la conexion
         conn = new ConecctionSQLiteHelper(this, "bdOrtografia", null, 1);
@@ -167,6 +175,10 @@ public class LoginActivity extends AppCompatActivity {
                     User.setLastName(lastName.toString());
                     User.setPassword(password.toString());
 
+                    //Se guarda una bandera para que asi al siguiente inicio no se tenga que estar llenando el login y entrar al menu
+                    SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences("TAG", Context.MODE_PRIVATE);
+                    sharedPrefs.edit().putString("Status",User.getEmail().toString()).apply();
+
                     //Se inicia la actividad MainMenu
                     Intent i = new Intent(LoginActivity.this,MenuActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
@@ -188,16 +200,38 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    //Creacion de notificacion
+    private void notification(int hour, int min, int sec,int code ){
+
+        //Se genera la hora en la que aparecera la notificacion
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, min);
+        calendar.set(Calendar.SECOND, sec);
+        //esta se encarga de que al abrir la aplicacion nuevamente se muestren las notificaciones
+        if (calendar.getTime().compareTo(new Date()) < 0) calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+        //Se crea el intent para llamara a la clase NotificatioService
+        Intent intent = new Intent(getApplicationContext(), new NotificationService().getClass());
+        //Se le asigna un codigo especial para que no se sobreescriba la notificacion
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), code, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        //Se crea la alarma y se procede a dar los parametros que anteriormente se crearon
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),24*60*60*1000,pendingIntent);
+
+    }
+
+
     //Alert dialog en caso de que, o el password sea incorrecto o que el email no exista
     public void errorLogin(String option){
 
         if("ErrorPassword".equals(option)) {
 
             new AlertDialog.Builder(LoginActivity.this)
-                    .setTitle("Error")
+                    .setTitle(R.string.title_error)
                     .setMessage(R.string.passwordIncorrect)
                     .setIcon(R.drawable.error)
-                    .setPositiveButton("OK",
+                    .setPositiveButton(R.string.positive_button_ok,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
@@ -210,10 +244,10 @@ public class LoginActivity extends AppCompatActivity {
         if("AccounNoExist".equals(option)) {
 
             new AlertDialog.Builder(LoginActivity.this)
-                    .setTitle("Error")
-                    .setMessage("Lo sentimos, no pudimos encontrar tu cuenta.")
+                    .setTitle(R.string.title_error)
+                    .setMessage(R.string.account_no_found)
                     .setIcon(R.drawable.error)
-                    .setPositiveButton("OK",
+                    .setPositiveButton(R.string.positive_button_ok,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
@@ -229,10 +263,10 @@ public class LoginActivity extends AppCompatActivity {
     public void alertWarning() {
 
         new AlertDialog.Builder(LoginActivity.this)
-                .setTitle("Warning")
+                .setTitle(R.string.title_warning)
                 .setMessage(R.string.fill_two_fields)
                 .setIcon(R.drawable.warning)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();

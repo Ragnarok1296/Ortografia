@@ -1,12 +1,11 @@
 package com.ortografia.trinidad.controllers.account;
 
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -17,7 +16,6 @@ import android.widget.TextView;
 
 import com.ortografia.trinidad.LoginActivity;
 import com.ortografia.trinidad.R;
-import com.ortografia.trinidad.controllers.menus.MenuActivity;
 import com.ortografia.trinidad.models.ConecctionSQLiteHelper;
 import com.ortografia.trinidad.models.User;
 import com.ortografia.trinidad.models.Utilities;
@@ -151,10 +149,10 @@ public class DeleteAccountActivity extends AppCompatActivity {
     //Alerta para indicar si la eliminacion fue exitosa
     public void alertCorrect() {
         new AlertDialog.Builder(DeleteAccountActivity.this)
-                .setTitle("Bye")
+                .setTitle(R.string.title_bye)
                 .setMessage(R.string.delete_successful)
                 .setIcon(R.drawable.correct)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Intent i = new Intent(DeleteAccountActivity.this, LoginActivity.class);
@@ -170,10 +168,10 @@ public class DeleteAccountActivity extends AppCompatActivity {
     public void alertWarning() {
 
         new AlertDialog.Builder(DeleteAccountActivity.this)
-                .setTitle("Warning")
+                .setTitle(R.string.title_warning)
                 .setMessage(R.string.fill_all_fields)
                 .setIcon(R.drawable.warning)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -187,10 +185,10 @@ public class DeleteAccountActivity extends AppCompatActivity {
     public void errorCreateAccount(){
 
         new AlertDialog.Builder(DeleteAccountActivity.this)
-                .setTitle("Error")
+                .setTitle(R.string.title_error)
                 .setMessage(R.string.try_again)
                 .setIcon(R.drawable.error)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -204,10 +202,10 @@ public class DeleteAccountActivity extends AppCompatActivity {
     public void wrongUser() {
 
         new AlertDialog.Builder(DeleteAccountActivity.this)
-                .setTitle("Warning")
+                .setTitle(R.string.title_warning)
                 .setMessage(R.string.emailIncorrect)
                 .setIcon(R.drawable.error)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -221,10 +219,10 @@ public class DeleteAccountActivity extends AppCompatActivity {
     public void wrongRepeatPassword() {
 
         new AlertDialog.Builder(DeleteAccountActivity.this)
-                .setTitle("Warning")
+                .setTitle(R.string.title_warning)
                 .setMessage(R.string.passwordRepeatIncorrect)
                 .setIcon(R.drawable.warning)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -238,10 +236,10 @@ public class DeleteAccountActivity extends AppCompatActivity {
     public void wrongPassword() {
 
         new AlertDialog.Builder(DeleteAccountActivity.this)
-                .setTitle("Warning")
+                .setTitle(R.string.title_warning)
                 .setMessage(R.string.passwordIncorrect)
                 .setIcon(R.drawable.warning)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -254,24 +252,24 @@ public class DeleteAccountActivity extends AppCompatActivity {
     //Desicion
     public void question() {
         new AlertDialog.Builder(DeleteAccountActivity.this)
-                .setTitle("Warning")
+                .setTitle(R.string.title_warning)
                 .setMessage(R.string.are_you_sure)
                 .setIcon(R.drawable.warning)
-                .setPositiveButton("Si",
+                .setPositiveButton(R.string.positive_button_yes,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 deleteUser();
                                 dialog.cancel();
                             }
                         })
-                .setNeutralButton("Cancelar",
+                .setNeutralButton(R.string.neutral_button_cancel,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
                                 dialog.cancel();
                             }
                         })
-                .setNegativeButton("No",
+                .setNegativeButton(R.string.negative_button_no,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 onBackPressed();

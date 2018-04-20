@@ -163,10 +163,10 @@ public class UpdateAccountActivity extends AppCompatActivity {
     //Alerta para indicar si el registro fue exitoso
     public void alertCorrect() {
         new AlertDialog.Builder(UpdateAccountActivity.this)
-                .setTitle("Congratulations")
+                .setTitle(R.string.title_successful)
                 .setMessage(R.string.update_successful)
                 .setIcon(R.drawable.correct)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Intent i = new Intent(UpdateAccountActivity.this, MenuActivity.class);
@@ -182,10 +182,10 @@ public class UpdateAccountActivity extends AppCompatActivity {
     public void alertWarning() {
 
         new AlertDialog.Builder(UpdateAccountActivity.this)
-                .setTitle("Warning")
+                .setTitle(R.string.title_warning)
                 .setMessage(R.string.fill_all_fields)
                 .setIcon(R.drawable.warning)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -199,10 +199,10 @@ public class UpdateAccountActivity extends AppCompatActivity {
     public void errorCreateAccount(){
 
         new AlertDialog.Builder(UpdateAccountActivity.this)
-                .setTitle("Error")
+                .setTitle(R.string.title_error)
                 .setMessage(R.string.try_again)
                 .setIcon(R.drawable.error)
-                .setPositiveButton("OK",
+                .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -215,24 +215,24 @@ public class UpdateAccountActivity extends AppCompatActivity {
     //Desicion
     public void question() {
         new AlertDialog.Builder(UpdateAccountActivity.this)
-                .setTitle("Warning")
+                .setTitle(R.string.title_warning)
                 .setMessage(R.string.are_you_sure)
                 .setIcon(R.drawable.warning)
-                .setPositiveButton("Si",
+                .setPositiveButton(R.string.positive_button_yes,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 updateUser();
                                 dialog.cancel();
                             }
                         })
-                .setNeutralButton("Cancelar",
+                .setNeutralButton(R.string.neutral_button_cancel,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
                                 dialog.cancel();
                             }
                         })
-                .setNegativeButton("No",
+                .setNegativeButton(R.string.negative_button_no,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 onBackPressed();

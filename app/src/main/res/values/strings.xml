@@ -1,15 +1,15 @@
 <resources>
-    <string name="app_name">Ortografia</string>
+    <string name="app_name">Ortografía</string>
 
     <!-- Login -->
-    <string name="txtLogin">LOGIN</string>
+    <string name="txtLogin">ENTRAR</string>
     <string name="hintEmail">Introduzca su Email</string>
     <string name="hintPassword">Introduzca su contraseña</string>
     <string name="btnLogin">ENTRAR</string>
 
     <!-- Registro -->
     <string name="txtCreateAccount">REGISTRO</string>
-    <string name="hintName">Introduce tu(s) nombres</string>
+    <string name="hintName">Introduce tu(s) nombre(s)</string>
     <string name="hintLastName">Introduce tus apellidos</string>
     <string name="btnCreateAccount">CREAR CUENTA</string>
 
@@ -22,41 +22,52 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
-    <!-- Menu -->
-    <string name="txtMainMenu">Aprender Ortografia</string>
-    <string name="txtModule1">Acentuacion</string>
+    <!-- Menú -->
+    <string name="txtMainMenu">Aprender Ortografía</string>
+    <string name="txtModule1">Acentuación</string>
     <string name="txtModule2">Diferencias</string>
-    <string name="txtModule3">Puntuacion</string>
+    <string name="txtModule3">Puntuación</string>
 
 
-    <!-- Menu desplegable -->
+    <!-- Menú desplegable -->
     <string name="title_activity_menu">MenuActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Bienvenido(a)</string>
+    <string name="nav_header_title">Bienvenido(a):</string>
     <string name="mMainMenu">Inicio</string>
-    <string name="mModule1">Acentuacion</string>
+    <string name="mModule1">Acentuación</string>
     <string name="mModule2">Diferencias</string>
-    <string name="mModule3">Puntuacion</string>
+    <string name="mModule3">Puntuación</string>
     <string name="mSettings">Ajustes</string>
-    <string name="mLogOut">Cerrar Sesion</string>
+    <string name="mLogOut">Cerrar sesión</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="exitApplicattion">"Vuelve a presionar para salir"</string>
+    <string name="exitApplicattion">Vuelve a presionar para salir</string>
     <string name="txtOthers">Otros</string>
 
     <!-- Alert Dialogs -->
-    <string name="errorApplicattion">Error en aplicacion</string>
-    <string name="passwordIncorrect">La contraseña es incorrecta!!!</string>
-    <string name="fill_two_fields">Llene los dos campos!!!</string>
-    <string name="update_successful">Actualizacion Exitosa</string>
-    <string name="fill_all_fields">Llene todos los campos</string>
-    <string name="try_again">La aplicacion fallo, intantalo nuevamente!!!</string>
-    <string name="create_account_successful">Registro Exitoso</string>
-    <string name="account_exist">El email ya existe!!!</string>
+    <string name="errorApplicattion">¡Error en aplicación!</string>
+    <string name="passwordIncorrect">¡La contraseña es incorrecta!</string>
+    <string name="fill_two_fields">¡Llene los dos campos!</string>
+    <string name="update_successful">Actualización Exitosa.</string>
+    <string name="fill_all_fields">Llene todos los campos.</string>
+    <string name="try_again">La aplicación fallo, inténtalo nuevamente.</string>
+    <string name="create_account_successful">Registro Exitoso.</string>
+    <string name="account_exist">¡El email ya existe!</string>
     <string name="delete_successful">Se ha borrado la cuenta, hasta pronto.</string>
-    <string name="passwordRepeatIncorrect">Las contraseñas no coinciden</string>
-    <string name="emailIncorrect">El email no coincide con la cuenta</string>
-    <string name="are_you_sure">¿Estas seguro de esto?</string>
+    <string name="passwordRepeatIncorrect">Las contraseñas no coinciden.</string>
+    <string name="emailIncorrect">El email no coincide con la cuenta.</string>
+    <string name="are_you_sure">¿Estás seguro de esto?</string>
+
+    <string name="title_error">Error</string>
+    <string name="positive_button_ok">OK</string>
+    <string name="account_no_found">Lo sentimos, no pudimos encontrar tu cuenta.</string>
+    <string name="title_warning">Alerta</string>
+    <string name="title_welcome">Bienvenido</string>
+    <string name="title_bye">Adiós</string>
+    <string name="positive_button_yes">Si</string>
+    <string name="neutral_button_cancel">Cancelar</string>
+    <string name="negative_button_no">No</string>
+    <string name="title_successful">Exitoso</string>
 
     <!-- Settings -->
     <string name="txtSettings">AJUSTES</string>
@@ -70,11 +81,12 @@
     <string name="btnDeleteAccount">ELIMINAR</string>
 
     <!-- Mantenimiento -->
-    <string name="txtMaintenance">En mantenimiento!!!</string>
-    <string name="txtcoming_soon">Proximamente...</string>
+    <string name="txtMaintenance">¡En mantenimiento!</string>
+    <string name="txtcoming_soon">Próximamente</string>
 
-    <!-- Notificaion -->
+    <!-- Notificación -->
     <string name="notification_title">Regresa</string>
-    <string name="notification_content">Aun sigo aqui, utilizame.</string>
+    <string name="notification_content">Aun sigo aquí, utilízame.</string>
 
 </resources>
+
