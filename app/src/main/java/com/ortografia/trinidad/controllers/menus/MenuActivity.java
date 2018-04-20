@@ -109,7 +109,19 @@ public class MenuActivity extends AppCompatActivity
         } else if (id == R.id.nav_logout) {
             //Se designa el valor default para que asi ahora si inicie la aplicacion desde el login
             SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences("TAG", Context.MODE_PRIVATE);
-            sharedPrefs.edit().putString("Status","Login").apply();
+            sharedPrefs.edit().putString("Status","LogOut").apply();
+
+            sharedPrefs.edit().putString("Email","").apply();
+            sharedPrefs.edit().putString("Name","").apply();
+            sharedPrefs.edit().putString("LastName","").apply();
+            sharedPrefs.edit().putString("Password","").apply();
+
+            //Se elimina lainformacion del pojo User
+            User.setEmail("");
+            User.setName("");
+            User.setLastName("");
+            User.setPassword("");
+
             Intent i = new Intent(MenuActivity.this,LoginActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
             startActivity(i);

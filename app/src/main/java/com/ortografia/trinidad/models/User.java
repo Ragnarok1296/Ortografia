@@ -4,10 +4,10 @@ package com.ortografia.trinidad.models;
 
 public class User {
 
-    private static String email = "";
-    private static String name = "";
-    private static String lastName = "";
-    private static String password = "";
+    private static String email;
+    private static String name;
+    private static String lastName;
+    private static String password;
 
     public User() { }
 

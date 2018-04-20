@@ -52,10 +52,16 @@ public class LoginActivity extends AppCompatActivity {
 
         //Codigo para verificar si ya se habia iniciado sesion y asi mandar al menu
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("TAG", Context.MODE_PRIVATE);
-        String valor = sharedPref.getString("Status", "Login");
+        String valor = sharedPref.getString("Status", "LogOut");
 
         // Si el valor guardo es diferente al valor por defecto, significa que ya inicio sesio asi que lo puedes enviar al main
-        if (!valor.equals("Login")) {
+        if (valor.equals("LogIn")) {
+
+            User.setEmail(sharedPref.getString("Email", ""));
+            User.setName(sharedPref.getString("Name", ""));
+            User.setLastName(sharedPref.getString("LastName", ""));
+            User.setPassword(sharedPref.getString("Password", ""));
+
             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
             startActivity(intent);
@@ -177,7 +183,13 @@ public class LoginActivity extends AppCompatActivity {
 
                     //Se guarda una bandera para que asi al siguiente inicio no se tenga que estar llenando el login y entrar al menu
                     SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences("TAG", Context.MODE_PRIVATE);
-                    sharedPrefs.edit().putString("Status",User.getEmail().toString()).apply();
+                    sharedPrefs.edit().putString("Status","LogIn").apply();
+
+                    sharedPrefs.edit().putString("Email",User.getEmail().toString()).apply();
+                    sharedPrefs.edit().putString("Name",User.getName().toString()).apply();
+                    sharedPrefs.edit().putString("LastName",User.getLastName().toString()).apply();
+                    sharedPrefs.edit().putString("Password",User.getPassword().toString()).apply();
+
 
                     //Se inicia la actividad MainMenu
                     Intent i = new Intent(LoginActivity.this,MenuActivity.class);
