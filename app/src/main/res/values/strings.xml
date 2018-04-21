@@ -93,6 +93,8 @@
     <string name="btn_backup">Respaldo</string>
     <string name="error_backup">Error al generar el respaldo</string>
     <string name="backup_successful">El respaldo se generó exitosamente</string>
+    <string name="toast_permissions_accept">Ya puedes generar el respaldo</string>
+    <string name="toast_permissions_decline">No podras generar el respaldo</string>
 
 </resources>
 

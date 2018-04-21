@@ -1,7 +1,11 @@
 package com.ortografia.trinidad.controllers.menus;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -80,6 +84,7 @@ public class SettingsActivity extends AppCompatActivity {
         btnBackup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                permission();
                 createBackup();
             }
         });
@@ -146,5 +151,44 @@ public class SettingsActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.error_backup, Toast.LENGTH_SHORT).show();
         }
     }
+
+    //GENERA EL MENSAJE PARA DAR PERMISOS DE ESCRITURA
+    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1 ;
+
+    private void permission(){
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Toast.makeText(this, R.string.toast_permissions_accept, Toast.LENGTH_SHORT).show();
+                    createBackup();
+
+                } else {
+
+                    Toast.makeText(this, R.string.toast_permissions_decline, Toast.LENGTH_SHORT).show();
+
+                }
+                return;
+            }
+        }
+    }
+
 
 }
