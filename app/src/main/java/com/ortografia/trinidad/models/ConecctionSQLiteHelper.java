@@ -14,6 +14,7 @@ public class ConecctionSQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //Cuando se crea la clase (la base de datos), se crean las tablas
         db.execSQL(Utilities.CREATE_TABLE_USERS);
+        db.execSQL(Utilities.CREATE_USER_ROOT);
     }
 
     @Override

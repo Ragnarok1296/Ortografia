@@ -88,5 +88,11 @@
     <string name="notification_title">Regresa</string>
     <string name="notification_content">Aun sigo aquí, utilízame.</string>
 
+    <!-- Root -->
+    <string name="txt_backup_db">Crear copia de base de datos:</string>
+    <string name="btn_backup">Respaldo</string>
+    <string name="error_backup">Error al generar el respaldo</string>
+    <string name="backup_successful">El respaldo se generó exitosamente</string>
+
 </resources>
 

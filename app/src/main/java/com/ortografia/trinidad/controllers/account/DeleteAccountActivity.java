@@ -39,7 +39,7 @@ public class DeleteAccountActivity extends AppCompatActivity {
         hideBar();
 
         //Instanciacion de la conexion
-        conn = new ConecctionSQLiteHelper(this, "bdOrtografia", null, 1);
+        conn = new ConecctionSQLiteHelper(this, Utilities.DATABASE, null, 1);
 
         //Llamada a elementos del layout
         etEmail = (EditText) findViewById(R.id.etEmail);

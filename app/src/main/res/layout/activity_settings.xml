@@ -97,6 +97,18 @@
                 android:textSize="@dimen/txt_Bbutton_default"
                 android:theme="@style/RaisedButtonDeleteAccount" />
 
+            <!-- Backup -->
+            <Button
+                android:id="@+id/btnBackupDB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_button"
+                android:text="@string/btn_backup"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/txt_Bbutton_default"
+                android:theme="@style/RaisedButtonCreateAccount"
+                android:visibility="gone"/>
+
         </LinearLayout>
 
     </LinearLayout>

@@ -1,15 +1,19 @@
 package com.ortografia.trinidad;
 
 
+import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -76,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         notification(21,0,0,2);
 
         //Instanciacion de la conexion
-        conn = new ConecctionSQLiteHelper(this, "bdOrtografia", null, 1);
+        conn = new ConecctionSQLiteHelper(this, Utilities.DATABASE, null, 1);
 
         //Asignacion de elementos del layout
         etEmail = (EditText) findViewById(R.id.etEmail);
@@ -117,6 +121,8 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        permissions();
 
     }
 
@@ -233,6 +239,47 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1 ;
+    int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+
+    private void permissions(){
+/*
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+            } else {
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+
+            }
+        }
+*/
+    }
+/*
+    @Override
+    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+
+                } else {
+
+
+                }
+                return;
+            }
+        }
+    }*/
 
     //Alert dialog en caso de que, o el password sea incorrecto o que el email no exista
     public void errorLogin(String option){
