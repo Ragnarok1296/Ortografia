@@ -42,6 +42,8 @@ public class Module1MenuFragment extends Fragment  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ModuleContainerActivity.class);
+                intent.putExtra("Module","Module_1");
+                intent.putExtra("Lesson","Lesson_1");
                 startActivity(intent);
             }
         });

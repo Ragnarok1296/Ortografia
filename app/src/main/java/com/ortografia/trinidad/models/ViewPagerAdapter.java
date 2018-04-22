@@ -1,4 +1,4 @@
-package com.ortografia.trinidad.controllers.modules;
+package com.ortografia.trinidad.models;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

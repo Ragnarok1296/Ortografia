@@ -10,12 +10,19 @@ import com.ortografia.trinidad.R;
 
 public class Lesson1Page1Module1Fragment extends Fragment {
 
+    //Generar los elementos del activity
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lesson1_page1_module1, container, false);
+
+        view = inflater.inflate(R.layout.fragment_lesson1_page1_module1, container, false);
+
+
+
+
+        return view;
     }
 
 

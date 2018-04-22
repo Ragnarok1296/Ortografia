@@ -47,6 +47,7 @@
     <dimen name="txtLessons_min">17sp</dimen>
     <dimen name="lessons_box_width">135dp</dimen>
     <dimen name="lessons_box_height">155dp</dimen>
+    <dimen name="radius_layout_container">10dp</dimen>
 
 
 </resources>
