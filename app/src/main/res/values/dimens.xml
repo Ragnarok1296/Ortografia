@@ -41,5 +41,12 @@
     <!-- Settings -->
     <dimen name="textview_default_margintop">30dp</dimen>
 
+    <!-- modules -->
+    <dimen name="margin_lesson_layouts">6dp</dimen>
+    <dimen name="txtLessons_normal">20sp</dimen>
+    <dimen name="txtLessons_min">17sp</dimen>
+    <dimen name="lessons_box_width">135dp</dimen>
+    <dimen name="lessons_box_height">155dp</dimen>
+
 
 </resources>

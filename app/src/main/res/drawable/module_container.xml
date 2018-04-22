@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item android:top="0dp">
+        <shape>
+            <solid
+                android:color="@color/colorPrimaryDark"/>
+        </shape>
+    </item>
+
+    <item android:top="70dp">
+        <shape>
+            <solid
+                android:color="@color/icons"/>
+        </shape>
+    </item>
+
+    <item  android:top="570dp">
+        <shape >
+            <solid
+                android:color="@color/colorPrimary"/>
+
+        </shape>
+    </item>
+
+</layer-list>

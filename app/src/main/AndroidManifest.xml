@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ortografia.trinidad">
 
-    <uses-permission android:name="android.permission.SET_ALARM"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -43,13 +43,15 @@
         <!-- DeleteAccount -->
         <activity
             android:name=".controllers.account.DeleteAccountActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <!-- Settings -->
         <activity
             android:name=".controllers.menus.SettingsActivity"
             android:screenOrientation="portrait" />
         <!-- NotificationService -->
-        <receiver android:name=".models.NotificationService"/>
+        <receiver android:name=".models.NotificationService" />
+
+        <activity android:name=".controllers.modules.ModuleContainerActivity"></activity>
     </application>
 
 </manifest>

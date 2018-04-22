@@ -1,16 +1,21 @@
 package com.ortografia.trinidad.controllers.menus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.ortografia.trinidad.R;
+import com.ortografia.trinidad.controllers.modules.ModuleContainerActivity;
 
 //Fragmento para el modulo 1 Acentuacion
-public class Module1MenuFragment extends Fragment {
+public class Module1MenuFragment extends Fragment  {
 
     //Generar los elementos del activity
     View view;
@@ -25,11 +30,40 @@ public class Module1MenuFragment extends Fragment {
         //Almacenar la view del fragment
         view = inflater.inflate(R.layout.fragment_module1_menu, container, false);
 
+        RelativeLayout rlLesson1 = (RelativeLayout) view.findViewById(R.id.rlLesson1);
+        RelativeLayout rlLesson2 = (RelativeLayout) view.findViewById(R.id.rlLesson2);
+        RelativeLayout rlQuizz = (RelativeLayout) view.findViewById(R.id.rlQuizz);
+
         //Hace focus en el menu
         NavigationView navigationView = (NavigationView) getActivity().findViewById(R.id.nav_view);
         navigationView.getMenu().getItem(1).setChecked(true);
 
+        rlLesson1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ModuleContainerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        rlLesson2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), R.string.txtcoming_soon, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        rlQuizz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Awantaaaa!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return view;
     }
+
+
+
 
 }

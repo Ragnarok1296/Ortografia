@@ -96,5 +96,13 @@
     <string name="toast_permissions_accept">Ya puedes generar el respaldo</string>
     <string name="toast_permissions_decline">No podras generar el respaldo</string>
 
+    <!-- Lesson -->
+    <string name="txtQuizz">Examen</string>
+    <string name="txtLesson_progress_no">No</string>
+    <string name="txtLesson_progress_si">Si</string>
+    <string name="txtLesson1_module1">Introducción</string>
+
+
+
 </resources>
 
