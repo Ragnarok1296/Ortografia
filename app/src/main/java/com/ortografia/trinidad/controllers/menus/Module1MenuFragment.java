@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ortografia.trinidad.R;
@@ -37,6 +38,14 @@ public class Module1MenuFragment extends Fragment  {
         //Hace focus en el menu
         NavigationView navigationView = (NavigationView) getActivity().findViewById(R.id.nav_view);
         navigationView.getMenu().getItem(1).setChecked(true);
+
+        TextView noLesson1 = (TextView) view.findViewById(R.id.txtLesson1_isComplete);
+        TextView noLesson2 = (TextView) view.findViewById(R.id.txtLesson2_isComplete);
+        TextView noQuiz = (TextView) view.findViewById(R.id.txtQuizz_isComplete);
+
+        noLesson1.setText(noLesson1.getText()+" 3");
+        noLesson2.setText(noLesson2.getText()+" 0");
+        noQuiz.setText(noQuiz.getText()+" 5");
 
         rlLesson1.setOnClickListener(new View.OnClickListener() {
             @Override
