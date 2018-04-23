@@ -1,7 +1,9 @@
 package com.ortografia.trinidad.controllers.account;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -49,7 +51,7 @@ public class DeleteAccountActivity extends AppCompatActivity {
         btnDeleteAccount = (Button) findViewById(R.id.btnDeleteAccount);
 
         //Volver a la inmersion de pantalla completa
-        etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        etRepeatPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER
@@ -135,6 +137,21 @@ public class DeleteAccountActivity extends AppCompatActivity {
 
             //Se cierra la conexion
             db.close();
+
+            //Se designa el valor default para que asi ahora si inicie la aplicacion desde el login
+            SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences("TAG", Context.MODE_PRIVATE);
+            sharedPrefs.edit().putString("Status","LogOut").apply();
+
+            sharedPrefs.edit().putString("Email","").apply();
+            sharedPrefs.edit().putString("Name","").apply();
+            sharedPrefs.edit().putString("LastName","").apply();
+            sharedPrefs.edit().putString("Password","").apply();
+
+            //Se elimina lainformacion del pojo User
+            User.setEmail("");
+            User.setName("");
+            User.setLastName("");
+            User.setPassword("");
 
             alertCorrect();
 
