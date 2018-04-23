@@ -27,8 +27,7 @@
                 android:layout_marginBottom="@dimen/fab_margin"
                 android:gravity="center"
                 android:textSize="@dimen/txtLessons_normal"
-                android:textColor="@color/tertiary_text"
-                android:text="adasdasd"
+                android:textColor="@color/primary_text"
                 android:background="@drawable/curved_content"/>
 
         </LinearLayout>

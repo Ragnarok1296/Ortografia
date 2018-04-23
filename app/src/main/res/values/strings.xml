@@ -101,7 +101,7 @@
     <string name="txtLesson_progress_no">No</string>
     <string name="txtLesson_progress_si">Si</string>
     <string name="txtLesson1_module1">Introducción</string>
-    <string name="txtExample">Ejemplo</string>
+    <string name="txtExample">Ejemplo:</string>
 
 
 </resources>
