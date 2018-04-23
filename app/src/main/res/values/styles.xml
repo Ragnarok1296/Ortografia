@@ -54,4 +54,19 @@
         <item name="android:textColor">@color/tertiary_text</item>
     </style>
 
+    <!-- Modules -->
+    <style name="EditTextAnswer" parent="AppTheme">
+        <item name="android:textSize">@dimen/size_hint_default</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="colorAccent">@color/primary_text</item>
+        <item name="colorControlNormal">@color/colorPrimaryDark</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="FloatingLabelAnswer" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">@dimen/text_appearance_size</item>
+    </style>
+
+
 </resources>

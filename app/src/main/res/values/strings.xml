@@ -102,6 +102,14 @@
     <string name="txtLesson_progress_si">Si</string>
     <string name="txtLesson1_module1">Introducción</string>
     <string name="txtExample">Ejemplo:</string>
+    <string name="txtExcersice">Ejercicio</string>
+    <string name="title_incorrect">Respuesta incorrecta</string>
+    <string name="answer_incorrect">Revisa de nuevo la lección</string>
+    <string name="hintAnswer">Respuesta</string>
+    <string name="txtCongratulations">Felicidades</string>
+    <string name="lesson_finished">Lección terminada</string>
+    <string name="answer_incorrect_quiz">Revisa de nuevo las lecciónes</string>
+    <string name="quiz_finished">Examen terminado</string>
 
 
 </resources>

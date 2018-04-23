@@ -1,8 +1,5 @@
 package com.ortografia.trinidad.controllers.modules.module1.lesson1;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,11 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ortografia.trinidad.LoginActivity;
 import com.ortografia.trinidad.R;
-import com.ortografia.trinidad.controllers.menus.MenuActivity;
 import com.ortografia.trinidad.models.ConecctionSQLiteHelper;
-import com.ortografia.trinidad.models.User;
 import com.ortografia.trinidad.models.Utilities;
 
 public class Lesson1Page1Module1Fragment extends Fragment {
@@ -44,7 +38,7 @@ public class Lesson1Page1Module1Fragment extends Fragment {
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);
         txtContent = (TextView) view.findViewById(R.id.txtContent);
         txtExample = (TextView) view.findViewById(R.id.txtExample);
-        btnNext = (Button) view.findViewById(R.id.btnNextP2);
+        btnNext = (Button) view.findViewById(R.id.btnNext);
 
         viewPager = (ViewPager) getActivity().findViewById(R.id.container);
         btnNext.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +82,7 @@ public class Lesson1Page1Module1Fragment extends Fragment {
             String lesson = split[0];
             String example = split[1];
 
-            txtTitle.setText(title);
+            txtTitle.setText(title+"\nParte 1");
             txtContent.setText(lesson);
             txtExample.setText(example);
 

@@ -58,7 +58,10 @@ public class Module1MenuFragment extends Fragment  {
         rlQuizz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Awantaaaa!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), ModuleContainerActivity.class);
+                intent.putExtra("Module","Module_1");
+                intent.putExtra("Lesson","Quiz");
+                startActivity(intent);
             }
         });
 

@@ -3,10 +3,15 @@ package com.ortografia.trinidad.controllers.modules;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.ortografia.trinidad.R;
 import com.ortografia.trinidad.controllers.modules.module1.lesson1.*;
+import com.ortografia.trinidad.controllers.modules.module1.quiz.*;
 import com.ortografia.trinidad.models.ViewPagerAdapter;
 
 public class ModuleContainerActivity extends AppCompatActivity {
@@ -37,8 +42,15 @@ public class ModuleContainerActivity extends AppCompatActivity {
         //se carga los fragments
         viewPager.setAdapter(adapter);
         //tabLayout.setupWithViewPager(viewPager);
+        viewPager.beginFakeDrag();
 
+    }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus)
+            hideBar();
     }
 
     //Oculta las barras para la inmersion completa
@@ -68,6 +80,15 @@ public class ModuleContainerActivity extends AppCompatActivity {
                         adapter.AddFragment(new Lesson1Page4Module1Fragment(), "Page4");
                         adapter.AddFragment(new Lesson1Page5Module1Fragment(), "Page5");
                         adapter.AddFragment(new Lesson1Page6Module1Fragment(), "Page6");
+                        break;
+
+                    case "Quiz":
+                        //Se aniaden los fragments
+                        adapter.AddFragment(new QuizPage1Module1Fragment(), "Page1");
+                        adapter.AddFragment(new QuizPage2Module1Fragment(), "Page2");
+                        adapter.AddFragment(new QuizPage3Module1Fragment(), "Page3");
+                        adapter.AddFragment(new QuizPage4Module1Fragment(), "Page4");
+                        adapter.AddFragment(new QuizPage5Module1Fragment(), "Page5");
                         break;
 
                 }

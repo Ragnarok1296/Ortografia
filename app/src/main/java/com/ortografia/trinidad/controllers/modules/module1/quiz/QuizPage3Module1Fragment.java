@@ -1,4 +1,4 @@
-package com.ortografia.trinidad.controllers.modules.module1.lesson1;
+package com.ortografia.trinidad.controllers.modules.module1.quiz;
 
 import android.content.DialogInterface;
 import android.database.Cursor;
@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +19,7 @@ import com.ortografia.trinidad.R;
 import com.ortografia.trinidad.models.ConecctionSQLiteHelper;
 import com.ortografia.trinidad.models.Utilities;
 
-public class Lesson1Page4Module1Fragment extends Fragment {
+public class QuizPage3Module1Fragment extends Fragment {
 
     //Generar los elementos del activity
     View view;
@@ -38,7 +37,7 @@ public class Lesson1Page4Module1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_lesson1_page4_module1, container, false);
+        view = inflater.inflate(R.layout.fragment_quiz_page3_module1, container, false);
 
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);
         txtContent = (TextView) view.findViewById(R.id.txtContent);
@@ -66,6 +65,10 @@ public class Lesson1Page4Module1Fragment extends Fragment {
         return view;
     }
 
+    public void onBackPressed() {
+        super.getActivity().onBackPressed();
+    }
+
     private int getItem(int i) { return viewPager.getCurrentItem() + i; }
 
     private void content() {
@@ -73,14 +76,14 @@ public class Lesson1Page4Module1Fragment extends Fragment {
         SQLiteDatabase db = conn.getReadableDatabase();
 
         //Se selecciona el(los) parametros a utilizar en el where
-        String[] parameters = {"1","1"};
-        String where = Utilities.FIELD_IDLESSON + "=? AND " + Utilities.FIELD_VERSIONLESSON + "=?";
+        String[] parameters = {"Acentuación","3"};
+        String where = Utilities.FIELD_MODULE_QUIZ + "=? AND " + Utilities.FIELD_VERSION_QUIZ + "=?";
         //Se indican los campos que se quieren obtener
         String[] fields = {Utilities.FIELD_CONTENT_EXAMPLES};
 
         try{
             //Se ejecuta el query y se guarda en un cursosr
-            Cursor cursor = db.query(Utilities.TABLE_EXAMPLES,fields,where,parameters,null,null,null);
+            Cursor cursor = db.query(Utilities.TABLE_QUIZZES,fields,where,parameters,null,null,null);
 
 
             //Se obtienen los datos arrojados
@@ -93,6 +96,7 @@ public class Lesson1Page4Module1Fragment extends Fragment {
             String option2 = split[2];
 
             txtTitle.setText(R.string.txtExcersice);
+            txtTitle.setText(txtTitle.getText() + " 3");
             txtContent.setText(lesson);
             rbOption1.setText(option1);
             rbOption2.setText(option2);
@@ -119,12 +123,12 @@ public class Lesson1Page4Module1Fragment extends Fragment {
 
         new AlertDialog.Builder(getContext())
                 .setTitle(R.string.title_incorrect)
-                .setMessage(R.string.answer_incorrect)
+                .setMessage(R.string.answer_incorrect_quiz)
                 .setIcon(R.drawable.incorrect)
                 .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                viewPager.setCurrentItem(getItem(-1), true);
+                                onBackPressed();
 
 
                                 dialog.cancel();
@@ -133,5 +137,6 @@ public class Lesson1Page4Module1Fragment extends Fragment {
                 .show();
 
     }
+
 
 }

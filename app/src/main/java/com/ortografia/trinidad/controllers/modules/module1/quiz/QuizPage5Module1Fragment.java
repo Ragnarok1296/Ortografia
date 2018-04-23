@@ -1,4 +1,4 @@
-package com.ortografia.trinidad.controllers.modules.module1.lesson1;
+package com.ortografia.trinidad.controllers.modules.module1.quiz;
 
 import android.content.DialogInterface;
 import android.database.Cursor;
@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +19,7 @@ import com.ortografia.trinidad.R;
 import com.ortografia.trinidad.models.ConecctionSQLiteHelper;
 import com.ortografia.trinidad.models.Utilities;
 
-public class Lesson1Page4Module1Fragment extends Fragment {
+public class QuizPage5Module1Fragment extends Fragment {
 
     //Generar los elementos del activity
     View view;
@@ -28,6 +27,9 @@ public class Lesson1Page4Module1Fragment extends Fragment {
     TextView txtContent;
     RadioButton rbOption1;
     RadioButton rbOption2;
+    RadioButton rbOption3;
+    RadioButton rbOption4;
+    RadioButton rbOption5;
     Button btnCheck;
     ViewPager viewPager;
 
@@ -38,13 +40,16 @@ public class Lesson1Page4Module1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_lesson1_page4_module1, container, false);
+        view = inflater.inflate(R.layout.fragment_quiz_page5_module1, container, false);
 
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);
         txtContent = (TextView) view.findViewById(R.id.txtContent);
         btnCheck = (Button) view.findViewById(R.id.btnCheck);
         rbOption1 = (RadioButton) view.findViewById(R.id.rbOption1);
         rbOption2 = (RadioButton) view.findViewById(R.id.rbOption2);
+        rbOption3 = (RadioButton) view.findViewById(R.id.rbOption3);
+        rbOption4 = (RadioButton) view.findViewById(R.id.rbOption4);
+        rbOption5 = (RadioButton) view.findViewById(R.id.rbOption5);
 
         viewPager = (ViewPager) getActivity().findViewById(R.id.container);
 
@@ -52,7 +57,7 @@ public class Lesson1Page4Module1Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(checkAnswer())
-                    viewPager.setCurrentItem(getItem(+1), true);
+                    lessonFinish();
                 else
                     alertAnswerIncorrect();
             }
@@ -64,6 +69,11 @@ public class Lesson1Page4Module1Fragment extends Fragment {
         content();
 
         return view;
+
+    }
+
+    public void onBackPressed() {
+        super.getActivity().onBackPressed();
     }
 
     private int getItem(int i) { return viewPager.getCurrentItem() + i; }
@@ -73,14 +83,14 @@ public class Lesson1Page4Module1Fragment extends Fragment {
         SQLiteDatabase db = conn.getReadableDatabase();
 
         //Se selecciona el(los) parametros a utilizar en el where
-        String[] parameters = {"1","1"};
-        String where = Utilities.FIELD_IDLESSON + "=? AND " + Utilities.FIELD_VERSIONLESSON + "=?";
+        String[] parameters = {"Acentuación","5"};
+        String where = Utilities.FIELD_MODULE_QUIZ + "=? AND " + Utilities.FIELD_VERSION_QUIZ + "=?";
         //Se indican los campos que se quieren obtener
-        String[] fields = {Utilities.FIELD_CONTENT_EXAMPLES};
+        String[] fields = {Utilities.FIELD_CONTENT_QUIZ};
 
         try{
             //Se ejecuta el query y se guarda en un cursosr
-            Cursor cursor = db.query(Utilities.TABLE_EXAMPLES,fields,where,parameters,null,null,null);
+            Cursor cursor = db.query(Utilities.TABLE_QUIZZES,fields,where,parameters,null,null,null);
 
 
             //Se obtienen los datos arrojados
@@ -91,11 +101,19 @@ public class Lesson1Page4Module1Fragment extends Fragment {
             String lesson = split[0];
             String option1 = split[1];
             String option2 = split[2];
+            String option3 = split[3];
+            String option4 = split[4];
+            String option5 = split[5];
 
             txtTitle.setText(R.string.txtExcersice);
+            txtTitle.setText(txtTitle.getText() + " 5");
             txtContent.setText(lesson);
             rbOption1.setText(option1);
             rbOption2.setText(option2);
+            rbOption3.setText(option3);
+            rbOption4.setText(option4);
+            rbOption5.setText(option5);
+
 
 
             db.close();
@@ -109,7 +127,7 @@ public class Lesson1Page4Module1Fragment extends Fragment {
     }
 
     private boolean checkAnswer(){
-        if(rbOption2.isChecked())
+        if(rbOption4.isChecked())
             return true;
         else
             return false;
@@ -119,14 +137,29 @@ public class Lesson1Page4Module1Fragment extends Fragment {
 
         new AlertDialog.Builder(getContext())
                 .setTitle(R.string.title_incorrect)
-                .setMessage(R.string.answer_incorrect)
+                .setMessage(R.string.answer_incorrect_quiz)
                 .setIcon(R.drawable.incorrect)
                 .setPositiveButton(R.string.positive_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                viewPager.setCurrentItem(getItem(-1), true);
+                                onBackPressed();
+                                dialog.cancel();
+                            }
+                        })
+                .show();
 
+    }
 
+    public void lessonFinish() {
+
+        new AlertDialog.Builder(getContext())
+                .setTitle(R.string.txtCongratulations)
+                .setMessage(R.string.quiz_finished)
+                .setIcon(R.drawable.correct)
+                .setPositiveButton(R.string.positive_button_ok,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                onBackPressed();
                                 dialog.cancel();
                             }
                         })

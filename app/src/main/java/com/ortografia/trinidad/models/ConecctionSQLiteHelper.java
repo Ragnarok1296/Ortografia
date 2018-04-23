@@ -17,6 +17,10 @@ public class ConecctionSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(Utilities.CREATE_USER_ROOT);
         db.execSQL(Utilities.CREATE_TABLE_LESSONS);
         db.execSQL(Utilities.CONTENT_LESSONS);
+        db.execSQL(Utilities.CREATE_TABLE_EXAMPLES);
+        db.execSQL(Utilities.CONTENT_EXAMPLES);
+        db.execSQL(Utilities.CREATE_TABLE_QUIZZES);
+        db.execSQL(Utilities.CONTENT_QUIZZES);
     }
 
     @Override
