@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ortografía</string>
+    <string name="app_name">Aprender ortografía</string>
 
     <!-- Login -->
     <string name="txtLogin">ENTRAR</string>
