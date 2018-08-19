@@ -6,36 +6,97 @@
     tools:context=".controllers.menus.Module2MenuFragment">
 
     <!-- Contenedor con curvas -->
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_marginTop="@dimen/margin_top_textinputlayout"
-        android:gravity="center"
         android:background="@drawable/curved">
 
-        <!-- Prueba, borrar ya que este textView es basura-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/primary_text"
-            android:text="@string/txtModule2"
-            android:textSize="@dimen/size_hint_default"/>
+        <!-- Lesson 1 -->
+        <RelativeLayout
+            android:id="@+id/rlLesson1"
+            android:layout_width="@dimen/lessons_box_width"
+            android:layout_height="@dimen/lessons_box_height"
+            android:background="@drawable/curved_blue"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="@dimen/margin_lesson_layouts">
 
-        <!-- Mantenimiento -->
-        <ImageView
-            android:layout_width="@dimen/logo"
-            android:layout_height="@dimen/logo"
-            android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/maintenance"/>
+            <TextView
+                android:id="@+id/txtLesson1_isComplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtLesson_progress_no"
+                android:textColor="@color/tertiary_text"
+                android:textStyle="bold"
+                android:textSize="@dimen/size_hint_default"
+                android:layout_marginRight="@dimen/fab_margin"
+                android:layout_alignParentRight="true"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/primary_text"
-            android:text="@string/txtMaintenance"
-            android:textSize="@dimen/size_hint_default"/>
+            <ImageView
+                android:id="@+id/imgLesson1"
+                android:layout_width="@dimen/logoMin"
+                android:layout_height="@dimen/logoMin"
+                android:layout_below="@id/txtLesson1_isComplete"
+                android:layout_centerInParent="true"
+                android:src="@drawable/lesson"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txtLesson1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgLesson1"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_centerHorizontal="true"
+                android:text="@string/txtLesson1_module2"
+                android:textColor="@color/tertiary_text"
+                android:textStyle="bold"
+                android:textSize="@dimen/size_hint_default"/>
+
+        </RelativeLayout>
+
+        <!-- Lesson 2 -->
+        <RelativeLayout
+            android:id="@+id/rlLesson2"
+            android:layout_width="@dimen/lessons_box_width"
+            android:layout_height="@dimen/lessons_box_height"
+            android:background="@drawable/curved_blue"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/margin_lesson_layouts">
+
+            <TextView
+                android:id="@+id/txtLesson2_isComplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtLesson_progress_no"
+                android:textColor="@color/tertiary_text"
+                android:textStyle="bold"
+                android:textSize="@dimen/size_hint_default"
+                android:layout_marginRight="@dimen/fab_margin"
+                android:layout_alignParentRight="true"/>
+
+            <ImageView
+                android:id="@+id/imgLesson2"
+                android:layout_width="@dimen/logoMin"
+                android:layout_height="@dimen/logoMin"
+                android:layout_below="@id/txtLesson2_isComplete"
+                android:layout_centerInParent="true"
+                android:src="@drawable/maintenance"/>
+
+            <TextView
+                android:id="@+id/txtLesson2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgLesson2"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_centerHorizontal="true"
+                android:text="@string/txtcoming_soon"
+                android:textColor="@color/tertiary_text"
+                android:textStyle="bold"
+                android:textSize="@dimen/txtLessons_min"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
 
 </FrameLayout>

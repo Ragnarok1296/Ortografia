@@ -33,7 +33,7 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Bienvenido(a):</string>
+    <string name="nav_header_title">Bienvenido(a)</string>
     <string name="mMainMenu">Inicio</string>
     <string name="mModule1">Acentuación</string>
     <string name="mModule2">Diferencias</string>
@@ -110,6 +110,12 @@
     <string name="lesson_finished">Lección terminada</string>
     <string name="answer_incorrect_quiz">Revisa de nuevo las lecciónes</string>
     <string name="quiz_finished">Examen terminado</string>
+
+    <string name="txtLesson1_module2">G-J</string>
+    <string name="txtLesson1_module3">Punto</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

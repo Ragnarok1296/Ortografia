@@ -3,15 +3,13 @@ package com.ortografia.trinidad.controllers.modules;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.ortografia.trinidad.R;
 import com.ortografia.trinidad.controllers.modules.module1.lesson1.*;
 import com.ortografia.trinidad.controllers.modules.module1.quiz.*;
+import com.ortografia.trinidad.controllers.modules.module2.lesson1.*;
+import com.ortografia.trinidad.controllers.modules.module3.lesson1.*;
 import com.ortografia.trinidad.models.ViewPagerAdapter;
 
 public class ModuleContainerActivity extends AppCompatActivity {
@@ -89,6 +87,42 @@ public class ModuleContainerActivity extends AppCompatActivity {
                         adapter.AddFragment(new QuizPage3Module1Fragment(), "Page3");
                         adapter.AddFragment(new QuizPage4Module1Fragment(), "Page4");
                         adapter.AddFragment(new QuizPage5Module1Fragment(), "Page5");
+                        break;
+
+                }
+
+                break;
+
+            case "Module_2":
+
+                switch (lesson){
+
+                    case "Lesson_1":
+                        //Se aniaden los fragments
+                        adapter.AddFragment(new Lesson1Page1Module2Fragment(), "Page1");
+                        adapter.AddFragment(new Lesson1Page2Module2Fragment(), "Page2");
+                        adapter.AddFragment(new Lesson1Page3Module2Fragment(), "Page3");
+                        adapter.AddFragment(new Lesson1Page4Module2Fragment(), "Page4");
+                        adapter.AddFragment(new Lesson1Page5Module2Fragment(), "Page5");
+                        adapter.AddFragment(new Lesson1Page6Module2Fragment(), "Page6");
+                        break;
+
+                }
+
+                break;
+
+            case "Module_3":
+
+                switch (lesson){
+
+                    case "Lesson_1":
+                        //Se aniaden los fragments
+                        adapter.AddFragment(new Lesson1Page1Module3Fragment(), "Page1");
+                        adapter.AddFragment(new Lesson1Page2Module3Fragment(), "Page2");
+                        adapter.AddFragment(new Lesson1Page3Module3Fragment(), "Page3");
+                        adapter.AddFragment(new Lesson1Page4Module3Fragment(), "Page4");
+                        adapter.AddFragment(new Lesson1Page5Module3Fragment(), "Page5");
+                        adapter.AddFragment(new Lesson1Page6Module3Fragment(), "Page6");
                         break;
 
                 }

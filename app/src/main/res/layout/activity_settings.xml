@@ -45,7 +45,8 @@
             android:paddingLeft="@dimen/padding_left_default"
             android:paddingRight="@dimen/padding_right_default"
             android:layout_weight="75"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="invisible">
 
             <!-- Settings -->
             <TextView
@@ -63,7 +64,8 @@
                 android:text="@string/txtUpdateUser"
                 android:textColor="@color/tertiary_text"
                 android:textSize="@dimen/size_hint_default"
-                android:layout_marginTop="@dimen/textview_default_margintop" />
+                android:layout_marginTop="@dimen/textview_default_margintop"
+                />
 
             <!-- UpdateAccount -->
             <Button
@@ -74,7 +76,8 @@
                 android:text="@string/btnUpdateAccount"
                 android:layout_gravity="center_horizontal"
                 android:textSize="@dimen/txt_Bbutton_default"
-                android:theme="@style/RaisedButtonCreateAccount"/>
+                android:theme="@style/RaisedButtonCreateAccount"
+                />
 
             <!-- Update -->
             <TextView
@@ -84,7 +87,8 @@
                 android:text="@string/txtDeleteUser"
                 android:textColor="@color/tertiary_text"
                 android:textSize="@dimen/size_hint_default"
-                android:layout_marginTop="@dimen/textview_default_margintop" />
+                android:layout_marginTop="@dimen/textview_default_margintop"
+                />
 
             <!-- CreateAccount -->
             <Button
@@ -95,7 +99,8 @@
                 android:text="@string/btnDeleteAccount"
                 android:layout_gravity="center_horizontal"
                 android:textSize="@dimen/txt_Bbutton_default"
-                android:theme="@style/RaisedButtonDeleteAccount" />
+                android:theme="@style/RaisedButtonDeleteAccount"
+                />
 
             <!-- Backup -->
             <Button

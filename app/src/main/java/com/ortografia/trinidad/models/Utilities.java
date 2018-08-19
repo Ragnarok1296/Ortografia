@@ -53,7 +53,14 @@ public class Utilities {
     public static final String CONTENT_LESSONS = "Insert into "+ TABLE_LESSONS + " values " +
             "(0,'Acentuación','Introducción',1,'En español, las palabras son tónicas o acentuadas cuando una de sus sílabas sobresale en intensidad cuando la pronunciamos. Estas palabras pueden tener tilde o no.@Comí\nCafés\nQuizás\nCalor')," +
             "(1,'Acentuación','Introducción',2,'El acento se define como la fuerza o intensidad mayor con la que se destaca una sílaba dentro de una palabra. Existen dos clases de acento: el prosódico (tónico o de intensidad), que se encuentra en todas las palabras, y el ortográfico (tilde), que es el acento representado en la escritura (´).@Habló\nRecepción\nPreguntar\nCasualidad')," +
-            "(2,'Acentuación','Introducción',3,'Las palabras se clasifican según el lugar que ocupe la sílaba tónica. Existen cuatro categorías de palabras: agudas, llanas o graves, esdrújulas y sobresdrújulas.');";
+            "(2,'Acentuación','Introducción',3,'Las palabras se clasifican según el lugar que ocupe la sílaba tónica. Existen cuatro categorías de palabras: agudas, llanas o graves, esdrújulas y sobresdrújulas.')," +
+            "(3,'Diferencias','G-J',1,'En castellano se produce a veces confusión entre estas dos consonantes: \"g\" y \"j\".  Ambas letras se pronuncian exactamente igual delante de las vocales \"e\" e \"i\".@Jirafa\nGeranio\nJerez\nGema\nJesuita\nGimnasia')," +
+            "(4,'Diferencias','G-J',2,'Para el uso de la g, existen algunas reglas para tener en consideración:\n\n1. Después de al y de las consonantes n o r, se escribe con Ge, Gi y no con je, ji.\n\n2. Las palabras que contienen la silaba gen.\n\n3. Las palabras que comienzan o terminan con el prefijo geo.\n\n4. Las palabras que empiezan por legi, legis, gest.\n\n5. Las formas verbales de los verbos cuyo infinitivo termina en ger, gir o gerar se escriben con G cuando llevan ge o gi.\n\n6. Las palabras que contienen los grupos -igi-, -agi-.\n\n7. Las palabras terminadas en -gio, -gion, -gional, -gionario, -gioso.\n\n8. Las palabras terminadas en -igeno, -igero.')," +
+            "(5,'Diferencias','G-J',3,'Así mismo, existen reglas para el uso de la letra j. Las cuales son:\n\n1. Las palabras derivadas de sustantivos o adjetivos terminados en ja, jo.\n\n2. Las palabras que comienzan por adj y por obj.\n\n3. Las palabras terminadas en aje y en eje.\n\n4. Las formas verbales pretéritas y subjuntivas de los verbos cuyo infinitivo termina en decir, ducir, traer.\n\n5. Las formas verbales de los verbos cuyo infinitivo termina en jar o jear.\n\n6. Los sustantivos y adjetivos terminados en jero, jera, jería.\n\n7. Las palabras derivadas del latín subjectare (someter, poner debajo).')," +
+            "(6,'Puntuación','Punto',1,'El signo ortográfico del \"punto\" se utiliza para cerrar partes de la comunicación que tienen sentido en sí mismo.\n1. Existen varios tipos de puntos: punto y seguido, punto y aparte, punto final en un escrito.@Después de salir a la calle, comenzó a llover y como no llevaba impermeable, decidí entrar en una tienda y comprarme uno.')," +
+            "(7,'Puntuación','Punto',2,'El Punto y seguido separa, dentro de un mismo párrafo, enunciados que están relacionados entre sí (desarrollan una misma idea).@Después de salir a la calle, comenzó a llover y como no llevaba impermeable, decidí entrar en una tienda y comprarme uno. Pero cuando entré en la tienda me di cuenta de que no llevaba dinero. Decidí entonces que mejor sería volver a casa y esperar a que escampase.')," +
+            "(8,'Puntuación','Punto',3,'Se usa punto final cuando termina (acaba) un escrito o una división importante de un texto (parte, capítulo, sección, etc.).');";
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -73,7 +80,13 @@ public class Utilities {
     public static final String CONTENT_EXAMPLES = "Insert into "+ TABLE_EXAMPLES + " values " +
             "(0,0,1,'En español, las palabras pueden ser:@Tónicas@Diptongos@Acentuadas@Silabas')," +
             "(1,1,1,'La tilde es característico del tipo de acento…@Tónico@Ortográfico')," +
-            "(2,2,1,'¿En cuantas categorías se clasifican las palabras de acuerdo a la ubicación de la silaba tónica?');";
+            "(2,2,1,'¿En cuantas categorías se clasifican las palabras de acuerdo a la ubicación de la silaba tónica?')," +
+            "(3,3,1,'¿Frente a que vocal ambas consonantes (“g” y “j”) se pronuncian igual?@O@I@A@C')," +
+            "(4,4,1,'Selecciona las palabras que están escritas correctamente:@Oxígeno@Coleguio@Exigir@Ajitar@Algebra@Pajina@Exijir@General')," +
+            "(5,5,1,'Selecciona las palabras que están escritas incorrectamente:@Flogera@Cajero@Canjear@Exijir')," +
+            "(6,6,1,'¿Cuántos tipos de punto hay?')," +
+            "(7,7,1,'En el enunciado siguiente, ¿Los puntos están colocados correctamente?\nLlame a la oficina de San Juan antes de las doce. Hay que reconfirmar el pedido. El mismo debe recibirse mañana.@Si@No')," +
+            "(8,8,1,'El punto final se usa para:@Acabar un capítulo de libro.@Terminar un párrafo y seguir escribiendo en otro.@Finalizar una carta.@Terminar con tu pareja.');";
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
